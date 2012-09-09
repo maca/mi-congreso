@@ -1,0 +1,30 @@
+@import "layout/header";
+@import "layout/footer";
+
+@import "parties/*.png";
+@include all-parties-sprites;
+
+.main {
+  background: $lightBackColor;
+  min-height: 500px;
+  @include background(linear-gradient($startGradientColor, $lightBackColor 200px, $lightBackColor));
+}
+
+.content {
+  background: white;
+  margin-top: 18px;
+  @include border-radius(5px);
+  @include box-shadow(darken($lightBackColor, 30%) 0px 1px 9px);
+}
+
+.section-header {
+  background: $darkBackColor;
+  color: white;
+  font-size: ms(2);
+  padding: 9px;
+  text-transform: uppercase;
+
+  @include border-radius(5px);
+}
+
+

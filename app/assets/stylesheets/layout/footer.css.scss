@@ -1,0 +1,29 @@
+$footerTxtColor: #B8B7AD;
+$footerHoverColor: #675D52;
+$footerBorderColor: #7D766B;
+
+footer {
+  background: $darkBackColor;
+
+  h4 {
+    color: $footerTxtColor;
+    font-size: ms(0);
+    text-transform: uppercase;
+    @include text-shadow(0px 0px 1px black);
+  }
+
+  li {
+    border-top: 1px dotted $footerBorderColor;
+    list-style: none;
+    padding: 3px;
+  }
+
+  a {
+    color: $footerTxtColor;
+    display: block;
+    &:hover { 
+      color: $footerTxtColor;
+      background: $footerHoverColor; 
+    }
+  }
+}

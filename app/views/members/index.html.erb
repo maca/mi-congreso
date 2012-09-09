@@ -1,0 +1,23 @@
+<h2 class="section-header">Diputados</h2>
+
+<table border="0" width="100%">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Partido</th>
+      <th>Estado</th>
+    </th>
+  </thead>
+
+  <tbody>
+    <% @members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+      <td><%= member.party_name %></td>
+      <td><%= member.state_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
