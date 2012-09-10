@@ -70,6 +70,10 @@ test:
 production:
   sessions:
     default:
-      uri: ENV['MONGOLAB_URI']
+      database: heroku_app7458444
+      hosts:
+        - ds037597-a.mongolab.com:37597
+      username: heroku_app7458444
+      password: 903k919728m5u12c49rldkl92r
       options:
         consistency: :strong
