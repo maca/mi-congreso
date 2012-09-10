@@ -5,8 +5,9 @@ class Member
   belongs_to :state
   belongs_to :party
 
-  field :name,    type: String
-  field :email,   type: String
+  field :name,      type: String
+  field :email,     type: String
+  field :district,  type: String
 
   def party_name
     self.party.try(:name)
