@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.8'
 gem "thin", ">= 1.4.1"
-gem "mongoid", ">= 3.0.5"
+gem "pg"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,7 +24,7 @@ end
 
 gem 'jquery-rails'
 gem "devise", ">= 2.1.2"
-gem 'activeadmin-mongoid', git: "https://github.com/elia/activeadmin-mongoid.git"
+gem 'activeadmin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -53,7 +53,6 @@ end
 group :test do
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner", ">= 0.8.0"
-  gem "mongoid-rspec", ">= 1.4.6"
   gem "email_spec", ">= 1.2.1"
   gem "cucumber-rails", ">= 1.3.0"
   gem "launchy", ">= 2.1.2"

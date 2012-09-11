@@ -1,8 +1,5 @@
-class Party
-  include Mongoid::Document
+class Party < ActiveRecord::Base
+  attr_accessible :name, :short_name
 
   has_many :members
-
-  field :name,        type: String
-  field :short_name,  type: String
 end

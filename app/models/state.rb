@@ -1,6 +1,4 @@
-class State
-  include Mongoid::Document
+class State < ActiveRecord::Base
+  attr_accessible :name, :short_name
 
-  field :name,        type: String
-  field :short_name,  type: String
 end
