@@ -3,3 +3,10 @@
   padding: $size;
   @include border-radius($radius);
 }
+
+.members {
+
+  table a {
+    text-decoration: underline;
+  }
+}

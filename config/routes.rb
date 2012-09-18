@@ -5,7 +5,7 @@ MiCongreso::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root to: "home#index"
-  resources :members, only: [:index, :show]
+  resources :members, only: [:index, :show], path: "diputados"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

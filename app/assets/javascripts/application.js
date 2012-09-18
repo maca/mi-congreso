@@ -13,4 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.pjax
 //= require_tree .
+
+$(function() {
+  $('#main .content').pjax('a').on('pjax:send', function(){
+
+  })
+
+  $("#main .content").on('click', '.member_search input[type=submit]', function() {
+    var $form = $('form.member_search');
+    $.pjax({
+      container: "#main .content",
+      url: $form.attr("action"),
+      data: $form.serialize()
+    });
+
+    return false;
+  });
+});

@@ -4,7 +4,7 @@
 @import "parties/*.png";
 @include all-parties-sprites;
 
-.main {
+#main {
   background: $lightBackColor;
   min-height: 500px;
   padding: 18px 0;

@@ -22,7 +22,7 @@ group :assets do
   gem 'zurb-foundation', '~> 3.0.9'
 end
 
-gem 'jquery-rails'
+gem 'pjax_rails'
 gem "devise", ">= 2.1.2"
 gem 'activeadmin', ">= 0.5.0"
 gem "ransack", ">= 0.7.0"

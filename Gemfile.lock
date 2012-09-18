@@ -143,6 +143,8 @@ GEM
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
     pg (0.14.1)
+    pjax_rails (0.3.3)
+      jquery-rails
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -246,10 +248,10 @@ DEPENDENCIES
   email_spec (>= 1.2.1)
   factory_girl_rails (>= 4.0.0)
   hub (>= 1.10.2)
-  jquery-rails
   kaminari
   launchy (>= 2.1.2)
   pg
+  pjax_rails
   quiet_assets
   rails (= 3.2.8)
   ransack (>= 0.7.0)
