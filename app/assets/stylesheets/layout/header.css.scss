@@ -4,19 +4,19 @@ header {
 
   .seven { padding-right: 0}
   .five { padding-left: 0}
-}
 
-nav {
-  background: $lightBackColor;
-  padding: 9px;
-  margin-top: 12px;
-  @include border-radius(9px);
+  nav {
+    background: $lightBackColor;
+    padding: 9px;
+    margin-top: 12px;
+    @include border-radius(9px);
 
-  a {
-    display: inline-block;
-    padding: 6px 9px;
-    font-weight: bold;
-    font-size: ms(1);
-    border-right: 1px dotted $borderColor;
+    a {
+      display: inline-block;
+      padding: 6px 9px;
+      font-weight: bold;
+      font-size: ms(1);
+      border-right: 1px dotted $borderColor;
+    }
   }
 }

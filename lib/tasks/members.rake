@@ -7,7 +7,7 @@ namespace :members do
       party = Party.find_or_create_by_name(name: row["partido"])
       state = State.find_or_create_by_name(name: row["estado"])
 
-      Member.create(name: row["nombre"], party: party, state: state, district: row["distrito"])
+      Member.create(name: row["nombre"], party_id: party.id, state_id: state.id, district: row["distrito"])
     end
   end
 end

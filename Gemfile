@@ -24,7 +24,9 @@ end
 
 gem 'jquery-rails'
 gem "devise", ">= 2.1.2"
-gem 'activeadmin'
+gem 'activeadmin', ">= 0.5.0"
+gem "ransack", ">= 0.7.0"
+gem "kaminari"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,6 +45,7 @@ gem 'activeadmin'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
+  gem "quiet_assets"
 end
 
 group :development, :test do

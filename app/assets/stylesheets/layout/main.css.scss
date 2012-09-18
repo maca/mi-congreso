@@ -21,10 +21,10 @@
   background: $darkBackColor;
   color: white;
   font-size: ms(2);
-  padding: 9px;
+  padding: $size;
   text-transform: uppercase;
 
-  @include border-radius(5px);
+  @include border-radius($radius);
 }
 
 

@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.all
+    @search = Member.includes(:party, :state).search(params[:q])
+    @members = @search.result(:distinct => true).page(params[:page])
   end
 
   def show

@@ -16,5 +16,13 @@
 @import "compass/css3/images";
 
 @import "foundation_and_overrides";
+
 @import "config/colors";
+@import "config/dimensions";
+@import "config/base";
+
 @import "layout/main";
+
+@import "ui/pagination";
+
+@import "pages/members";

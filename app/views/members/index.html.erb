@@ -1,5 +1,37 @@
 <h2 class="section-header">Diputados</h2>
 
+<%= search_form_for @search do |f| %>
+
+  <div class="row">
+    <div class="three column">
+      <%= f.label :name_cont, t("members.name") %>
+    </div>
+    <div class="three column">
+      <%= f.label :party_id_eq, t("members.party") %>
+    </div>
+    <div class="three column">
+      <%= f.label :state_id_eq, t("members.state") %>
+    </div>
+    <div class="three column"></div>
+  </div>
+
+  <div class="row">
+    <div class="three column">
+      <%= f.text_field :name_cont %>
+    </div>
+    <div class="three column">
+      <%= f.select :party_id_eq, Party.all.collect {|p| [p.name, p.id]}, {prompt: t("all")} %>
+    </div>
+    <div class="three column">
+      <%= f.select :state_id_eq, State.all.collect {|p| [p.name, p.id]}, {prompt: t("all")} %>
+    </div>
+
+    <div class="three column">
+      <%= f.submit t("search"), class: "small button" %>
+    </div>
+  </div>
+<% end %>
+
 <table border="0" width="100%">
   <thead>
     <tr>
@@ -20,4 +52,4 @@
   </tbody>
 </table>
 
-
+<%= paginate @members %>
