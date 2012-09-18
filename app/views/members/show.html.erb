@@ -1,2 +1,3 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<h2 class="member-name <%= @member.party.try(:short_name).downcase %>"><%= @member.name %></h2>
+
+<h4><%= @member.state_name %></h4>

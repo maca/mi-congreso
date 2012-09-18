@@ -9,4 +9,19 @@
   table a {
     text-decoration: underline;
   }
+
+  h2.member-name {
+    padding-left: 70px;
+    height: 57px;
+    &.pan    { @include parties-sprite(pan_color); }
+    &.pri    { @include parties-sprite(pri_color); }
+    &.prd    { @include parties-sprite(prd_color); }
+    &.pt     { @include parties-sprite(pt_color); }
+    &.verde  { @include parties-sprite(verde_color); }
+  }
+
+  h4 {
+    padding-left: 70px;
+    margin-top: $size*-3
+  }
 }
