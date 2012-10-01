@@ -1,4 +1,5 @@
 require 'csv'
+require 'open-uri'
 
 namespace :members do
   desc "Import members from CSV file"
@@ -7,7 +8,24 @@ namespace :members do
       party = Party.find_or_create_by_name(name: row["partido"])
       state = State.find_or_create_by_name(name: row["estado"])
 
-      Member.create(name: row["nombre"], party_id: party.id, state_id: state.id, district: row["distrito"])
+      election_type = ""
+      election_type = "relativa" if row["eleccion"].to_s.match(/relativa/)
+      election_type = "proporcional" if row["eleccion"].to_s.match(/proporcional/)
+
+      begin
+        photo = open(row["url_foto"])
+      rescue
+        photo = nil
+      end
+
+      Member.create(name: row["nombre"],
+                    party_id: party.id,
+                    state_id: state.id,
+                    district: row["distrito"],
+                    substitute: row["suplente"],
+                    election_type: election_type,
+                    email: row["email"],
+                    photo: photo)
     end
   end
 end

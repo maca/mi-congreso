@@ -11,6 +11,7 @@
   }
 
   h2.member-name {
+    font-size: 32px;
     padding-left: 70px;
     height: 57px;
     &.pan    { @include parties-sprite(pan_color); }
@@ -23,5 +24,14 @@
   h4 {
     padding-left: 70px;
     margin-top: $size*-3
+  }
+}
+
+.avatar {
+  text-align: center;
+
+  img {
+    @include border-radius($radius);
+    @include box-shadow(darken($lightBackColor, 30%) 0px 1px 9px);
   }
 }

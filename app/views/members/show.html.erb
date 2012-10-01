@@ -1,3 +1,32 @@
-<h2 class="member-name <%= @member.party.try(:short_name).downcase %>"><%= @member.name %></h2>
+<div class="row">
+  <div class="nine columns">
+    <h2 class="member-name <%= @member.party.try(:short_name).to_s.downcase %>"><%= @member.name %></h2>
 
-<h4><%= @member.state_name %></h4>
+    <h4><%= @member.state_name %></h4>
+  </div>
+
+  <div class="three columns sidebar">
+    <div class="panel avatar">
+      <%= image_tag @member.photo.url %>
+    </div>
+
+    <span class="label radius"><%= t('members.email') %></span>
+    <p><%= @member.email %></p>
+
+    <% if @member.twitter.present? %>
+    <span class="label radius"><%= t('members.twitter') %></span>
+    <p><%= link_to_twitter_username @member.twitter %></p>
+    <% end %>
+
+    <span class="label radius"><%= t('members.election_type') %></span>
+    <p><%= t("election_type.#{@member.election_type}") %></p>
+
+    <span class="label radius"><%= t('members.substitute') %></span>
+    <p><%= @member.substitute %></p>
+
+    <% if @member.birthdate.present? %>
+    <span class="label radius"><%= t('members.age') %></span>
+    <p><%= @member.age %></p>
+    <% end %>
+  </div>
+</div>

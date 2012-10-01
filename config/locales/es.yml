@@ -8,5 +8,47 @@ es:
   members:
     name: "Nombre"
     party: "Partido"
+    email: "Correo electrónico"
+    election_type: "Tipo de elección"
+    substitute: "Suplente"
+    age: "Edad"
+
+  election_type:
+    relativa: "Mayoría relativa"
+    proporcional: "Representación proporcional"
+
+  activerecord:
+    models:
+      member: "Diputado"
+      party: "Partido"
+      state: "Estado"
+      admin_user: "Administrador"
+
+    attributes:
+      member:
+        name: "Nombre"
+        email: "Correo"
+        comission: "Comisión"
+        election_type: "Tipo de elección"
+        birthplace: "Lugar de nacimiento"
+        birthdate: "Fecha de nacimiento"
+        substitute: "Suplente"
+        education: "Educación"
+        political_experience: "Experiencia política"
+        private_experience: "Experiencia privada"
+        photo: "Foto"
+        party: "Partido"
+        state: "Estado"
+        facebook: "Facebook"
+        twitter: "Twitter"
+
+      party:
+        name: "Nombre"
+        short_name: "Abreviación"
+
+      state:
+        name: "Nombre"
+        short_name: "Abreviación"
+
 
 

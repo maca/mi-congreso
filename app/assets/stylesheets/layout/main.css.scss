@@ -27,4 +27,11 @@
   @include border-radius($radius);
 }
 
+.sidebar {
+  background: $lightBackColor;
+  @include border-radius($radius);
+  margin: 9px 9px 9px -9px;
+  padding: $size;
+}
+
 
