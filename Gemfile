@@ -24,6 +24,7 @@ gem "ransack", ">= 0.7.0"
 gem "kaminari"
 gem "nokogiri"
 gem "paperclip"
+gem 'aws-sdk', '~> 1.3.4'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
