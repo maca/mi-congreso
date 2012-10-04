@@ -1,3 +1,5 @@
+<% title @member.name %>
+
 <div class="row">
   <div class="nine columns">
     <h2 class="member-name <%= @member.party.try(:short_name).to_s.downcase %>"><%= @member.name %></h2>

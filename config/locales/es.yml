@@ -12,6 +12,7 @@ es:
     election_type: "Tipo de elección"
     substitute: "Suplente"
     age: "Edad"
+    members: "Diputados"
 
   election_type:
     relativa: "Mayoría relativa"
@@ -19,12 +20,25 @@ es:
 
   activerecord:
     models:
+      admin_user: "Administrador"
+      initiative: "Iniciativa"
       member: "Diputado"
       party: "Partido"
       state: "Estado"
-      admin_user: "Administrador"
+      subject: "Tema"
 
     attributes:
+      initiative:
+        title: "Título"
+        member: "Diputado"
+        member_id: "Diputado"
+        description: "Descripción"
+        subject: "Tema"
+        original_document_url: "Documento original"
+        presented_at: "Fecha de presentación"
+        views_count: "Número de visitas"
+        summary_by: "Resumida por"
+
       member:
         name: "Nombre"
         email: "Correo"
@@ -38,7 +52,9 @@ es:
         private_experience: "Experiencia privada"
         photo: "Foto"
         party: "Partido"
+        party_id: "Partido"
         state: "Estado"
+        state_id: "Estado"
         facebook: "Facebook"
         twitter: "Twitter"
 
@@ -49,6 +65,9 @@ es:
       state:
         name: "Nombre"
         short_name: "Abreviación"
+
+      subject:
+        name: "Nombre"
 
 
 
