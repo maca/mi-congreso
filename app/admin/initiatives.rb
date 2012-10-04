@@ -2,6 +2,7 @@ ActiveAdmin.register Initiative do
 
   index do
     column :title
+    column :subject
     column :member
     column :summary_by
     column :presented_at
@@ -15,6 +16,7 @@ ActiveAdmin.register Initiative do
     f.inputs "Iniciativa" do
       f.input :title
       f.input :description
+      f.input :subject_id, as: :select, collection: Subject.all
       f.input :original_document_url
       f.input :presented_at, as: :date
       f.input :member_id, as: :select, collection: Member.order(:name)
