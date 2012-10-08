@@ -1,0 +1,9 @@
+<% title t('initiatives.initiatives') %>
+
+<h2 class="section-header"><%= t('initiatives.initiatives') %></h2>
+
+<%= render "search_form" %>
+
+<%= render @initiatives %>
+
+<%= paginate @initiatives %>

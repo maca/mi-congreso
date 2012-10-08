@@ -1,0 +1,10 @@
+<%= search_form_for @search do |f| %>
+  <div class="row">
+    <div class="nine column">
+      <%= f.text_field :title_cont %>
+    </div>
+    <div class="three column">
+      <%= f.submit t("search"), class: "small button" %>
+    </div>
+  </div>
+<% end %>

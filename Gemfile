@@ -29,20 +29,18 @@ gem 'turbolinks'
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
   gem "quiet_assets"
+  gem 'guard-rspec', git: "https://github.com/guard/guard-rspec.git"
+  gem 'guard-cucumber'
+  gem 'rb-fsevent', '~> 0.9.1', require: false
+  gem 'zeus'
 end
 
 group :development, :test do
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 4.0.0"
-  gem 'rb-fsevent', '~> 0.9.1', require: false
 end
 
 group :test do
-  gem 'spork-rails'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'guard-cucumber'
-
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner", ">= 0.8.0"
   gem "email_spec", ">= 1.2.1"
