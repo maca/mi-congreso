@@ -17,7 +17,6 @@ group :assets do
   gem 'zurb-foundation', "~> 3.1.1"
 end
 
-gem 'pjax_rails'
 gem "devise", ">= 2.1.2"
 gem 'activeadmin', ">= 0.5.0"
 gem "ransack", ">= 0.7.0"
@@ -25,6 +24,7 @@ gem "kaminari"
 gem "nokogiri"
 gem "paperclip"
 gem 'aws-sdk', '~> 1.3.4'
+gem 'turbolinks'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
