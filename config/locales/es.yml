@@ -33,7 +33,7 @@ es:
         member: "Diputado"
         member_id: "Diputado"
         description: "Descripción"
-        subject: "Tema"
+        subjects: "Temas"
         original_document_url: "Documento original"
         presented_at: "Fecha de presentación"
         views_count: "Número de visitas"

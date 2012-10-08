@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004073616) do
+ActiveRecord::Schema.define(:version => 20121008055831) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20121004073616) do
     t.string   "title"
     t.integer  "member_id"
     t.text     "description"
-    t.integer  "subject_id"
     t.string   "summary_by"
     t.string   "original_document_url"
     t.datetime "presented_at"
@@ -60,7 +59,14 @@ ActiveRecord::Schema.define(:version => 20121004073616) do
   end
 
   add_index "initiatives", ["member_id"], :name => "index_initiatives_on_member_id"
-  add_index "initiatives", ["subject_id"], :name => "index_initiatives_on_subject_id"
+
+  create_table "initiatives_subjects", :id => false, :force => true do |t|
+    t.integer "initiative_id"
+    t.integer "subject_id"
+  end
+
+  add_index "initiatives_subjects", ["initiative_id"], :name => "index_initiatives_subjects_on_initiative_id"
+  add_index "initiatives_subjects", ["subject_id"], :name => "index_initiatives_subjects_on_subject_id"
 
   create_table "members", :force => true do |t|
     t.string   "name"

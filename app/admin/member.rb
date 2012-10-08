@@ -20,7 +20,7 @@ ActiveAdmin.register Member do
       f.input :state_id, as: :select, collection: State.all
       f.input :election_type, as: :select, collection: [[I18n.t("election_type.relativa"), "relativa"], [I18n.t("election_type.proporcional"), "proporcional"]]
       f.input :birthplace
-      f.input :birthdate, as: :date, start_year: 1900
+      f.input :birthdate, as: :date_select, start_year: 1900
       f.input :substitute
       f.input :facebook
       f.input :twitter
@@ -29,7 +29,7 @@ ActiveAdmin.register Member do
       f.input :political_experience
       f.input :private_experience
     end
-    f.buttons
+    f.actions
   end
 end
 
