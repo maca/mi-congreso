@@ -14,11 +14,13 @@
     font-size: 32px;
     padding-left: 70px;
     height: 57px;
+    &.mc     { @include parties-sprite(mc_color); }
+    &.na     { @include parties-sprite(na_color); }
     &.pan    { @include parties-sprite(pan_color); }
-    &.pri    { @include parties-sprite(pri_color); }
     &.prd    { @include parties-sprite(prd_color); }
+    &.pri    { @include parties-sprite(pri_color); }
     &.pt     { @include parties-sprite(pt_color); }
-    &.verde  { @include parties-sprite(verde_color); }
+    &.pvem   { @include parties-sprite(pvem_color); }
   }
 
   h4 {
