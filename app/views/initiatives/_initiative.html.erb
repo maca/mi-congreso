@@ -1,3 +1,15 @@
 <div class="initiative">
-  <p><%= initiative.title %></p>
+  <% if initiative.subjects.present? %>
+  <span class="label radius"><%= subjects(initiative) %></span>
+  <% end %>
+  <h4 class="title"><%= link_to initiative.title, initiative %></h4>
+
+  <p><%= truncate(initiative.description, length: 200) %></p>
+
+  <div class="bottom row">
+    <span class="left"><strong><%= t("initiatives.presented_at") %></strong> <%= l(initiative.presented_at, format: :date) %></span>
+    <span class="right"><%= number_with_delimiter(initiative.views_count.to_i) %> <%= t('initiatives.views_count') %></span>
+  </div>
 </div>
+
+<hr class="separator">

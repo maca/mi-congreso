@@ -6,5 +6,6 @@ class InitiativesController < ApplicationController
 
   def show
     @initiative = Initiative.find(params[:id])
+    @initiative.increase_views_count!
   end
 end

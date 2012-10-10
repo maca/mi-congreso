@@ -12,6 +12,23 @@ a:focus { color: $mainColor; outline: none; }
   }
 }
 
+.sort.button {
+  color: $mainColor;
+  border-color: darken($lightBackColor, 10%);
+  @include background(linear-gradient(lighten($lightBackColor, 15%), lighten($lightBackColor, 5%)));
+  @include border-radius($radius);
+  @include box-shadow($borderColor 1px 1px 3px);
+
+  &:hover {
+    @include background(linear-gradient(lighten($lightBackColor, 10%), $lightBackColor));
+  }
+
+  &.active {
+    @include box-shadow(inset 1px 1px 3px $borderColor);
+    @include background(linear-gradient(darken($lightBackColor, 2%), lighten($lightBackColor, 3%)));
+  }
+}
+
 .label {
   background: $pink;
 }

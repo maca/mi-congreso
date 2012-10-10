@@ -1,0 +1,10 @@
+.filters {
+  background: $lightBackColor;
+  padding: $size;
+  @include border-radius($radius);
+}
+
+input[type=text].large {
+  height: 48px;
+  font-size: $size*3;
+}

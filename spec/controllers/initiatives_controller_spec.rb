@@ -23,10 +23,19 @@ describe InitiativesController do
   end
 
   describe "GET show" do
+    before(:each) do
+      Initiative.stub(:find) { initiative }
+    end
+
     it "finds the initiative by id" do
       Initiative.should_receive(:find).with("1") { initiative }
       get :show, id: 1
       assigns(:initiative).should eq initiative
+    end
+
+    it "increases the initiative views_count" do
+      initiative.should_receive(:increase_views_count!)
+      get :show, id: 1
     end
   end
 end

@@ -1,10 +1,10 @@
-<%= search_form_for @search do |f| %>
+<%= search_form_for @search, html: {class: "initiative-search filters"} do |f| %>
   <div class="row">
-    <div class="nine column">
-      <%= f.text_field :title_cont %>
+    <div class="ten column">
+      <%= f.text_field :title_cont, class: "large" %>
     </div>
-    <div class="three column">
-      <%= f.submit t("search"), class: "small button" %>
+    <div class="two column">
+      <%= f.submit t("search"), class: "large button" %>
     </div>
   </div>
 <% end %>

@@ -16,6 +16,11 @@ es:
 
   initiatives:
     initiatives: "Iniciativas"
+    presented_at: "Presentada el"
+    views_count: "Visitas"
+    most_recent: "Mas recientes"
+    most_viewed: "Mas visitadas"
+
 
   election_type:
     relativa: "Mayoría relativa"
