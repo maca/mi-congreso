@@ -2,6 +2,8 @@ $footerTxtColor: #B8B7AD;
 $footerHoverColor: #675D52;
 $footerBorderColor: #7D766B;
 
+@include sticky-footer(118px, "#main", "#main-footer", "footer");
+
 footer {
   background: $darkBackColor;
 
@@ -21,9 +23,9 @@ footer {
   a {
     color: $footerTxtColor;
     display: block;
-    &:hover { 
+    &:hover {
       color: $footerTxtColor;
-      background: $footerHoverColor; 
+      background: $footerHoverColor;
     }
   }
 }
