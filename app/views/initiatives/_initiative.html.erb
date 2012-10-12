@@ -7,8 +7,20 @@
   <p><%= truncate(initiative.description, length: 200) %></p>
 
   <div class="bottom row">
-    <span class="left"><strong><%= t("initiatives.presented_at") %></strong> <%= l(initiative.presented_at, format: :date) %></span>
-    <span class="right"><%= number_with_delimiter(initiative.views_count.to_i) %> <%= t('initiatives.views_count') %></span>
+    <div class="ten columns left">
+      <div class="row">
+        <div class="five columns">
+          <span class="label secondary radius"><%= t("initiatives.presented_at") %></span>
+          <span><%= l(initiative.presented_at, format: :date) %></span>
+        </div>
+        <div class="seven columns">
+          <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
+          <span class="proposer-small <%= party_abbr(initiative.member) %>-small"><%= link_to initiative.member.try(:name), initiative.member %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="two columns right"><%= number_with_delimiter(initiative.views_count.to_i) %> <%= t('initiatives.views_count') %></div>
   </div>
 </div>
 

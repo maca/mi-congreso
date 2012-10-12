@@ -33,6 +33,21 @@ a:focus { color: $mainColor; outline: none; }
   background: $pink;
 }
 
+.label.secondary {
+  background: $lightBackColor;
+  color: $txtColor;
+  margin-right: 6px;
+}
+
+.label-large {
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
 .center {
   text-align: center;
+}
+
+.block {
+  display: inline-block;
 }

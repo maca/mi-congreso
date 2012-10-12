@@ -16,10 +16,13 @@ es:
 
   initiatives:
     initiatives: "Iniciativas"
-    presented_at: "Presentada el"
+    presented_at: "Presentada el: "
     views_count: "Visitas"
     most_recent: "Mas recientes"
     most_viewed: "Mas visitadas"
+    proposed_by: "Presentada por: "
+    description: "Descripción de la propuesta"
+    summary_by: "Traducida por: "
     all: "Todas"
 
 

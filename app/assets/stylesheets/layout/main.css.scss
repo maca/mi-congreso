@@ -4,6 +4,9 @@
 @import "parties/*.png";
 @include all-parties-sprites;
 
+@import "parties-small/*.png";
+@include all-parties-small-sprites;
+
 #main {
   background: $lightBackColor;
   padding: 18px 0;

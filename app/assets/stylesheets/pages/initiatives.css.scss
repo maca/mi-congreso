@@ -9,6 +9,18 @@
   &:nth-last-child(2) { border-bottom: none; margin-bottom: $size*2; }
 
   .title { margin-top: 7px;}
+
+  .right { text-align: right; }
+  .ten { padding: 0; }
+
+  .proposer-small {
+    padding-left: 30px;
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+  }
+
+  .secondary { line-height: 26px; }
 }
 
 .bottom.row {
@@ -31,3 +43,15 @@
 
   &:last-child { display: none}
 }
+
+.initiatives {
+  .label-large { margin: 15px 0 0 0; }
+}
+
+.mc-small     { @include parties-small-sprite(mc); }
+.na-small     { @include parties-small-sprite(na); }
+.pan-small    { @include parties-small-sprite(pan); }
+.prd-small    { @include parties-small-sprite(prd); }
+.pri-small    { @include parties-small-sprite(pri); }
+.pt-small     { @include parties-small-sprite(pt); }
+.pvem-small   { @include parties-small-sprite(pvem); }

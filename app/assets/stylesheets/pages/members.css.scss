@@ -1,3 +1,11 @@
+.mc     { @include parties-sprite(mc_color); }
+.na     { @include parties-sprite(na_color); }
+.pan    { @include parties-sprite(pan_color); }
+.prd    { @include parties-sprite(prd_color); }
+.pri    { @include parties-sprite(pri_color); }
+.pt     { @include parties-sprite(pt_color); }
+.pvem   { @include parties-sprite(pvem_color); }
+
 .members {
 
   table a {
@@ -8,13 +16,6 @@
     font-size: 32px;
     padding-left: 70px;
     height: 57px;
-    &.mc     { @include parties-sprite(mc_color); }
-    &.na     { @include parties-sprite(na_color); }
-    &.pan    { @include parties-sprite(pan_color); }
-    &.prd    { @include parties-sprite(prd_color); }
-    &.pri    { @include parties-sprite(pri_color); }
-    &.pt     { @include parties-sprite(pt_color); }
-    &.pvem   { @include parties-sprite(pvem_color); }
   }
 
   h4 {
@@ -30,4 +31,12 @@
     @include border-radius($radius);
     @include box-shadow(darken($lightBackColor, 30%) 0px 1px 9px);
   }
+}
+
+.proposer {
+  font-size: 24px;
+  padding-left: 70px;
+  height: 57px;
+  line-height: 57px;
+  margin: $size 0;
 }
