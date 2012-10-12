@@ -7,7 +7,7 @@ class Initiative < ActiveRecord::Base
   def self.search_with_options(query={}, options={})
     search = self.search(query)
     initiatives = search.result(:distinct => true)
-    initiatives = initiatives.includes(:subjects)
+    initiatives = initiatives.includes(:subjects, :member => :party)
     initiatives = initiatives.page(options[:page])
     initiatives = initiatives.sort_order("#{options[:order]}") if options[:order]
     initiatives

@@ -3,10 +3,12 @@
 <div class="label label-large radius block"><%= subjects(@initiative) %></div>
 <h2><%= @initiative.title %></h2>
 
+<% if @initiative.member %>
 <p>
   <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
   <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
 </p>
+<% end %>
 
 <h5><%= t('initiatives.description') %></h5>
 <p><%= @initiative.description %></p>

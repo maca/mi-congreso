@@ -14,8 +14,10 @@
           <span><%= l(initiative.presented_at, format: :date) %></span>
         </div>
         <div class="seven columns">
+          <% if initiative.member %>
           <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
           <span class="proposer-small <%= party_abbr(initiative.member) %>-small"><%= link_to initiative.member.try(:name), initiative.member %></span>
+          <% end %>
         </div>
       </div>
     </div>
