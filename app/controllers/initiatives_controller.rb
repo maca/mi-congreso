@@ -1,7 +1,7 @@
 class InitiativesController < ApplicationController
   def index
     @search = Initiative.search(params[:q])
-    @initiatives = @search.result(:distinct => true).page(params[:page])
+    @initiatives = Initiative.search_with_options(params[:q], {page: params[:page], order: params[:order]})
   end
 
   def show

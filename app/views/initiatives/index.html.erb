@@ -5,8 +5,9 @@
 <%= render "search_form" %>
 
 <div class="sorting row">
-  <%= link_to t('initiatives.most_viewed'), initiatives_path(order: "views_count"), class: "sort button" %>
-  <%= link_to t('initiatives.most_recent'), initiatives_path(order: "presented_at"), class: "sort button"  %>
+  <%= link_to_sort t('initiatives.all'), nil, class: "sort button" %>
+  <%= link_to_sort t('initiatives.most_viewed'), "views_count_asc", class: "sort button" %>
+  <%= link_to_sort t('initiatives.most_recent'), "presented_at_desc", class: "sort button" %>
 </div>
 
 <div class="initiatives">

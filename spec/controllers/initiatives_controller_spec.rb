@@ -2,21 +2,29 @@ require 'spec_helper'
 
 describe InitiativesController do
 
-  let(:search) { mock(:search).as_null_object }
   let(:initiative) { mock_model(Initiative).as_null_object }
 
   before(:each) do
-    Initiative.stub(:search) { search }
+    Initiative.stub(:search_with_options) { [initiative] }
   end
 
   describe "GET index" do
     it "searches initiatives with a query" do
-      Initiative.should_receive(:search).with("title_cont" => "Fede") { search }
+      Initiative.should_receive(:search_with_options).with({"title_cont" => "Fede"}, anything)
       get :index, q: {"title_cont" => "Fede"}
     end
 
+    it "paginates through the results" do
+      Initiative.should_receive(:search_with_options).with(nil, hash_including(page: "1"))
+      get :index, page: 1
+    end
+
+    it "orders the initiatives" do
+      Initiative.should_receive(:search_with_options).with(nil, hash_including(order: "views_count"))
+      get :index, order: "views_count"
+    end
+
     it "assigns the @initiatives" do
-      search.stub_chain(:result, :page) { [initiative] }
       get :index, q: {"title_cont" => "Fede"}
       assigns(:initiatives).should eq [initiative]
     end
