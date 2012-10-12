@@ -1,6 +1,8 @@
 <div class="initiative">
   <% if initiative.subjects.present? %>
-  <span class="label radius"><%= subjects(initiative) %></span>
+    <% initiative.subjects.each do |subject| %>
+      <span class="label radius"><%= subject.name %></span>
+    <% end %>
   <% end %>
   <h4 class="title"><%= link_to initiative.title, initiative %></h4>
 

@@ -1,6 +1,11 @@
 <% title @initiative.title %>
 
-<div class="label label-large radius block"><%= subjects(@initiative) %></div>
+<% if @initiative.subjects.present? %>
+  <% @initiative.subjects.each do |subject| %>
+    <div class="label label-large radius block"><%= subject.name %></div>
+  <% end %>
+<% end %>
+
 <h2><%= @initiative.title %></h2>
 
 <% if @initiative.member %>
@@ -12,6 +17,12 @@
 
 <h5><%= t('initiatives.description') %></h5>
 <p><%= @initiative.description %></p>
+
+<% if @initiative.original_document_url.present? %>
+<p>
+  <%= link_to t('initiatives.go_to_original_document'), @initiative.original_document_url, class: "small button" %>
+</p>
+<% end %>
 
 <% if @initiative.summary_by.present? %>
 <p>

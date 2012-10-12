@@ -22,7 +22,8 @@ es:
     most_viewed: "Mas visitadas"
     proposed_by: "Presentada por: "
     description: "Descripción de la propuesta"
-    summary_by: "Traducida por: "
+    summary_by: "Resumida por: "
+    go_to_original_document: "Ir al documento original"
     all: "Todas"
 
 
