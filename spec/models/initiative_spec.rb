@@ -5,6 +5,15 @@ describe Initiative do
   let(:search) { mock(:search).as_null_object }
   let(:relation) { mock(:relation).as_null_object }
 
+  context "validations" do
+    [:title, :description, :presented_at].each do |attr|
+      it "should not be valid without a #{attr}" do
+        initiative.send("#{attr}=", nil)
+        initiative.should_not be_valid
+      end
+    end
+  end
+
   describe "#search_with_options" do
     before(:each) do
       search.stub(:result) { relation }

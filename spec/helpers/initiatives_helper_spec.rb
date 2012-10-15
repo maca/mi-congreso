@@ -9,9 +9,14 @@ describe InitiativesHelper do
   end
 
   describe "#subjects" do
-    it "returns the subjects separated by comma" do
+    it "generates a html tag for every subject" do
       initiative.stub(:subjects) { [subject("Eleccion"), subject("Seguridad")] }
-      helper.subjects(initiative).should eq "Eleccion, Seguridad"
+      helper.subjects(initiative, class: "l", tag: "p").should eq '<p class="l">Eleccion</p><p class="l">Seguridad</p>'
+    end
+
+    it "returns nothing when subjects are empty" do
+      initiative.stub(:subjects) { [] }
+      helper.subjects(initiative, class: "l", tag: "p").should be_nil
     end
   end
 

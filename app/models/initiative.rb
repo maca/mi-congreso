@@ -4,6 +4,8 @@ class Initiative < ActiveRecord::Base
   belongs_to :member
   has_and_belongs_to_many :subjects
 
+  validates_presence_of :title, :description, :presented_at
+
   def self.search_with_options(query={}, options={})
     search = self.search(query)
     initiatives = search.result(:distinct => true)

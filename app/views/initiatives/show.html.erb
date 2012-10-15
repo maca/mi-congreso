@@ -1,10 +1,6 @@
 <% title @initiative.title %>
 
-<% if @initiative.subjects.present? %>
-  <% @initiative.subjects.each do |subject| %>
-    <div class="label label-large radius block"><%= subject.name %></div>
-  <% end %>
-<% end %>
+<%= subjects(@initiative, tag: "div", class: "label label-large radius block") %>
 
 <h2><%= @initiative.title %></h2>
 

@@ -1,7 +1,11 @@
 module InitiativesHelper
 
-  def subjects(initiative)
-    initiative.subjects.map(&:name).join(", ")
+  def subjects(initiative, options={})
+    if initiative.subjects.present?
+      initiative.subjects.map do |subject|
+        content_tag(options[:tag], subject.name, class: options[:class])
+      end.join.html_safe
+    end
   end
 
   def link_to_sort(text, sort, options={})

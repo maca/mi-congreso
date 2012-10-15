@@ -1,9 +1,6 @@
 <div class="initiative">
-  <% if initiative.subjects.present? %>
-    <% initiative.subjects.each do |subject| %>
-      <span class="label radius"><%= subject.name %></span>
-    <% end %>
-  <% end %>
+  <%= subjects(initiative, tag: "span", class: "label radius") %>
+
   <h4 class="title"><%= link_to initiative.title, initiative %></h4>
 
   <p><%= truncate(initiative.description, length: 200) %></p>
