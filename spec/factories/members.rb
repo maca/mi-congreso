@@ -7,7 +7,6 @@ FactoryGirl.define do
     party_id 1
     comission "MyString"
     state_id 1
-    district_id 1
     election_type "MyString"
     birthplace "MyString"
     birthdate "2012-09-11 18:23:58"

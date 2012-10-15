@@ -25,6 +25,7 @@ es:
     summary_by: "Resumida por: "
     go_to_original_document: "Ir al documento original"
     all: "Todas"
+    and_co_sponsors: " y %{count} más"
 
 
   election_type:
@@ -44,7 +45,9 @@ es:
       initiative:
         title: "Título"
         member: "Diputado"
-        member_id: "Diputado"
+        member_id: "Presentada por"
+        sponsors: "Co-presentada por"
+        other_sponsor: "Otros presentadores"
         description: "Descripción"
         subjects: "Temas"
         original_document_url: "Documento original"

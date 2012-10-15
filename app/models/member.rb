@@ -6,6 +6,9 @@ class Member < ActiveRecord::Base
   belongs_to :state
   belongs_to :party
 
+  has_many :initiatives
+  has_and_belongs_to_many :sponsored_initiatives, class_name: "Initiative"
+
   has_attached_file :photo, :styles => { :thumb => "100x100>" },
                             :storage => :s3,
                             :s3_credentials => {

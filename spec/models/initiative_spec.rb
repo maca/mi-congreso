@@ -52,4 +52,16 @@ describe Initiative do
       initiative.views_count.should eq 1
     end
   end
+
+  describe "#calculate_sponsors_count" do
+    before(:each) do
+      initiative.save
+    end
+
+    it "should increase the views count by 1" do
+      initiative.sponsors << FactoryGirl.create(:member)
+      initiative.calculate_sponsors_count
+      initiative.sponsors_count.should eq 1
+    end
+  end
 end

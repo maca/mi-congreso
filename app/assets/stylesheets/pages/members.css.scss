@@ -40,3 +40,14 @@
   line-height: 57px;
   margin: $size 0;
 }
+
+.proposer.no-logo, .proposer-small.no-logo {
+  padding-left: 0px;
+}
+
+.proposer-small {
+  padding-left: 30px;
+  height: 26px;
+  line-height: 26px;
+  display: inline-block;
+}

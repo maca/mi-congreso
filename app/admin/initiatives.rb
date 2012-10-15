@@ -22,6 +22,8 @@ ActiveAdmin.register Initiative do
       f.input :original_document_url
       f.input :presented_at, as: :date_select
       f.input :member_id, as: :select, collection: Member.order(:name)
+      f.input :sponsors
+      f.input :other_sponsor
       f.input :summary_by
     end
     f.actions
