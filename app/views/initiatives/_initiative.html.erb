@@ -10,17 +10,17 @@
       <div class="row">
         <div class="five columns">
           <span class="label secondary radius"><%= t("initiatives.presented_at") %></span>
-          <span><%= l(initiative.presented_at, format: :date) %></span>
+          <div><%= l(initiative.presented_at, format: :date) %></div>
         </div>
         <div class="seven columns">
           <% if initiative.member %>
             <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
-            <span class="proposer-small <%= party_abbr(initiative.member) %>-small">
+            <div class="proposer-small <%= party_abbr(initiative.member) %>-small">
               <%= link_to_sponsors initiative %>
-            </span>
+            </div>
           <% elsif initiative.other_sponsor %>
             <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
-            <span class="proposer-small no-logo"><%= initiative.other_sponsor %></span>
+            <div class="proposer-small no-logo"><%= initiative.other_sponsor %></div>
           <% end %>
         </div>
       </div>

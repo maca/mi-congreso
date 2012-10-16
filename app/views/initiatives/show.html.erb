@@ -1,6 +1,6 @@
 <% title @initiative.title %>
 
-<%= subjects(@initiative, tag: "div", class: "label label-large radius block") %>
+<%= subjects(@initiative, tag: "div", class: "label label-large radius inline") %>
 
 <h2><%= @initiative.title %></h2>
 
@@ -10,7 +10,7 @@
 
   <% if @initiative.sponsors.present? %>
     <% @initiative.sponsors.each do |sponsor| %>
-      <div class="proposer-small <%= party_abbr(sponsor) %>-small"><%= link_to sponsor.name, sponsor %></div>
+      <div class="proposer-small <%= party_abbr(sponsor) %>-small inline"><%= link_to sponsor.name, sponsor %></div>
     <% end %>
   <% end %>
 <% elsif @initiative.other_sponsor %>
