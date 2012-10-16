@@ -39,6 +39,11 @@
 
 .initiatives {
   .label-large { margin: 15px 6px 0 0; }
+  .sidebar {margin-top: 0;}
+}
+
+.subject {
+  padding: $size;
 }
 
 .mc-small     { @include parties-small-sprite(mc); }

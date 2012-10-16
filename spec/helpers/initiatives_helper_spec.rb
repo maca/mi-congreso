@@ -28,6 +28,12 @@ describe InitiativesHelper do
       helper.link_to_sort("recent", "views_count", {class: "sort"})
     end
 
+    it "links to the initiatives_subjects path when filtered by subject" do
+      helper.stub(:params) { {subject_id: 1} }
+      helper.should_receive(:link_to).with("recent", "/iniciativas/temas/1?order=views_count", {})
+      helper.link_to_sort("recent", "views_count")
+    end
+
     it "adds a active class" do
       helper.stub(:params) { {order: "views_count"} }
       helper.should_receive(:link_to).with("recent", "/iniciativas?order=views_count", {class: "sort active"})

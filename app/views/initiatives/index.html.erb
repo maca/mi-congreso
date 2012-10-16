@@ -10,8 +10,25 @@
   <%= link_to_sort t('initiatives.most_recent'), "presented_at_desc", class: "sort button" %>
 </div>
 
-<div class="initiatives">
-  <%= render @initiatives %>
-</div>
+<div class="row">
+  <div class="nine columns">
+    <div class="initiatives">
+      <%= render @initiatives %>
+    </div>
 
-<%= paginate @initiatives %>
+    <%= paginate @initiatives %>
+  </div>
+
+  <div class="three columns">
+    <div class="sidebar">
+      <h3 class="section-header"><%= t('subjects.subjects') %></h3>
+
+      <div class="subjects">
+        <div class="subject <%= "active" unless params[:subject_id] %>">
+          <%= link_to t("subjects.all"), initiatives_path %>
+        </div>
+        <%= render @subjects %>
+      </div>
+    </div>
+  </div>
+</div>

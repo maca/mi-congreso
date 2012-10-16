@@ -32,8 +32,9 @@
 .sidebar {
   background: $lightBackColor;
   @include border-radius($radius);
-  margin: 9px 9px 9px -9px;
+  margin: 15px 0;
   padding: $size;
-}
 
+  .section-header { font-size: ms(1); margin-top: 0;}
+}
 

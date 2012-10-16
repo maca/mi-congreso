@@ -6,5 +6,7 @@ MiCongreso::Application.routes.draw do
 
   root to: "home#index"
   resources :members, only: [:index, :show], path: "diputados"
+
+  match "iniciativas/temas/:subject_id" => "initiatives#index", as: :subject_initiatives
   resources :initiatives, only: [:index, :show], path: "iniciativas"
 end

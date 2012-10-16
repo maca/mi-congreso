@@ -1,0 +1,3 @@
+<div class="subject <%= "active" if params[:subject_id].to_i == subject.id %>">
+  <%= link_to "#{subject.name} (#{subject.initiatives_count})", subject_initiatives_path(subject.id) %>
+</div>

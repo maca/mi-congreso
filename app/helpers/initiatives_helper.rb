@@ -9,8 +9,14 @@ module InitiativesHelper
   end
 
   def link_to_sort(text, sort, options={})
+    if params[:subject_id].present?
+      path = subject_initiatives_path(params[:subject_id], order: sort)
+    else
+      path = initiatives_path(order: sort)
+    end
+
     options[:class] = [options[:class], "active"].join(" ") if sort == params[:order]
-    link_to text, initiatives_path(order: sort), options
+    link_to text, path, options
   end
 
   def link_to_sponsors(initiative)

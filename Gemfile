@@ -25,6 +25,7 @@ gem "nokogiri"
 gem "paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 gem 'turbolinks'
+gem 'squeel'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil

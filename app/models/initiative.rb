@@ -8,10 +8,13 @@ class Initiative < ActiveRecord::Base
   validates_presence_of :title, :description, :presented_at
 
   before_save :calculate_sponsors_count
+  after_save :calculate_initiatives_count_for_subjects
+
+  scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
 
   def self.search_with_options(query={}, options={})
     search = self.search(query)
-    initiatives = search.result(:distinct => true)
+    initiatives = search.result
     initiatives = initiatives.includes(:subjects, :member => :party)
     initiatives = initiatives.page(options[:page])
     initiatives = initiatives.sort_order("#{options[:order]}") if options[:order]
@@ -25,5 +28,9 @@ class Initiative < ActiveRecord::Base
 
   def calculate_sponsors_count
     self.sponsors_count = self.sponsors.count
+  end
+
+  def calculate_initiatives_count_for_subjects
+    self.subjects.each {|s| s.calculate_initiatives_count! }
   end
 end

@@ -27,6 +27,10 @@ es:
     all: "Todas"
     and_co_sponsors: " y %{count} más"
 
+  subjects:
+    subjects: "Temas"
+    all: "Todos"
+
 
   election_type:
     relativa: "Mayoría relativa"
@@ -84,6 +88,7 @@ es:
 
       subject:
         name: "Nombre"
+        initiatives_count: "No. de Iniciativas"
 
 
 
