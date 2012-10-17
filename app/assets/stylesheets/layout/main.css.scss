@@ -34,6 +34,7 @@
   @include border-radius($radius);
   margin: 15px 0;
   padding: $size;
+  word-wrap: break-word;
 
   .section-header { font-size: ms(1); margin-top: 0;}
 }

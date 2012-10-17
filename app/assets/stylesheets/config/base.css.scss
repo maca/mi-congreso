@@ -47,6 +47,11 @@ a:focus { color: $mainColor; outline: none; }
   margin-right: 6px;
 }
 
+.label-small {
+  font-size: 11px;
+  padding: 2px 4px;
+}
+
 .label-large {
   font-size: 16px;
   padding: 4px 8px;

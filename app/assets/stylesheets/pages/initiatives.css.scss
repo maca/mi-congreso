@@ -14,6 +14,8 @@
   .ten { padding: 0; }
 
   .secondary { line-height: 26px; }
+
+  .small-title { margin: 6px 0 10px }
 }
 
 .bottom.row {
@@ -34,7 +36,11 @@
   border-bottom: none;
   @include box-shadow($borderColor 0px 0px 6px);
 
-  &:last-child { display: none}
+  &:last-child { display: none }
+}
+
+.separator-small {
+  margin: 16px 0 16px;
 }
 
 .initiatives {

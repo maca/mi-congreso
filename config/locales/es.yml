@@ -13,6 +13,8 @@ es:
     substitute: "Suplente"
     age: "Edad"
     members: "Diputados"
+    no_initiatives_sponsored: "%{name} aún no ha presentado ninguna iniciativa."
+    sponsored_initiatives: "Inciativas presentadas"
 
   initiatives:
     initiatives: "Iniciativas"

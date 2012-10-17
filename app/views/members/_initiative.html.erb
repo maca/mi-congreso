@@ -1,0 +1,18 @@
+<div class="initiative">
+  <%= subjects(initiative, tag: "span", class: "label label-small radius") %>
+
+  <h6 class="small-title"><%= link_to initiative.title, initiative %></h4>
+
+  <div class="bottom row">
+    <div class="ten columns left">
+      <span class="label secondary radius"><%= t("initiatives.presented_at") %></span>
+      <span><%= l(initiative.presented_at, format: :date) %></span>
+    </div>
+
+    <div class="two columns right">
+      <%= number_with_delimiter(initiative.views_count.to_i) %> <%= t('initiatives.views_count') %>
+    </div>
+  </div>
+</div>
+
+<hr class="separator separator-small">

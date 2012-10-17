@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   belongs_to :party
 
   has_many :initiatives
-  has_and_belongs_to_many :sponsored_initiatives, class_name: "Initiative"
+  has_and_belongs_to_many :co_sponsored_initiatives, class_name: "Initiative"
 
   has_attached_file :photo, :styles => { :thumb => "100x100>" },
                             :storage => :s3,
@@ -16,6 +16,12 @@ class Member < ActiveRecord::Base
                               :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
                               :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
                             }
+
+  def all_initiatives(limit=5)
+    initiatives = self.initiatives + self.co_sponsored_initiatives
+    initiatives = initiatives.sort_by {|i| i.presented_at }.reverse
+    initiatives[0..limit-1]
+  end
 
   def party_name
     self.party.try(:name)

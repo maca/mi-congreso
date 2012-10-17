@@ -6,5 +6,6 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    @initiatives = @member.all_initiatives
   end
 end
