@@ -3,32 +3,25 @@
     <div class="twelve columns">
       <div class="row">
         <div class="two columns">
-          <h4>Mi Congreso</h4>
+          <h4><%= t('my_congress') %></h4>
           <ul>
-            <li><%= link_to "Acerca de Nosotros", "#nosotros" %></li>
+            <li><%= link_to t('footer.start'), root_path %></li>
           </ul>
         </div>
 
         <div class="two columns">
-          <h4>Síguenos</h4>
-          <ul>
-            <li><%= link_to "Twitter", "#twitter" %></li>
-            <li><%= link_to "Facebook", "#facebook" %></li>
-          </ul>
-        </div>
-
-        <div class="two columns">
-          <h4>Contáctanos</h4>
+          <h4><%= t('footer.contact_us') %></h4>
           <ul>
             <li><%= link_to "info@micongreso.mx", "mailto:info@micongreso.mx" %></li>
           </ul>
         </div>
 
         <div class="four columns end">
-          <h4>Ligas de Interés</h4>
+          <h4><%= t('footer.related_links') %></h4>
           <ul>
-            <li><%= link_to "Cámara de Diputados", "#camara_diputados" %></li>
-            <li><%= link_to "Sistema de Información Legislativa", "#sil" %></li>
+            <li><%= link_to t('footer.congress_chamber'), "http://www.diputados.gob.mx/inicio.htm" %></li>
+            <li><%= link_to t('footer.senate_chamber'), "http://www.senado.gob.mx/" %></li>
+            <li><%= link_to t('footer.sil'), "http://www.sil.gobernacion.gob.mx/portal" %></li>
           </ul>
         </div>
       </div>

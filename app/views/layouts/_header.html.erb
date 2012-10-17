@@ -1,13 +1,13 @@
 <header class="row">
   <div class="five columns">
-    <%= image_tag "logo.png" %>
+    <%= link_to image_tag("logo.png"), root_path %>
   </div>
 
   <div class="seven columns">
     <nav>
-      <%= link_to "Inicio", root_path %>
-      <%= link_to "Diputados", members_path %>
-      <%= link_to "Iniciativas", initiatives_path %>
+      <%= link_to t('start'), root_path %>
+      <%= link_to t('initiatives.initiatives'), initiatives_path %>
+      <%= link_to t('members.members'), members_path %>
     </nav>
   </div>
 

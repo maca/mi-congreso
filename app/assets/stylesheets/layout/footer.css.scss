@@ -2,7 +2,7 @@ $footerTxtColor: #B8B7AD;
 $footerHoverColor: #675D52;
 $footerBorderColor: #7D766B;
 
-@include sticky-footer(118px, "#main", "#main-footer", "footer");
+@include sticky-footer(138px, "#main", "#main-footer", "footer");
 
 footer {
   background: $darkBackColor;
@@ -18,6 +18,7 @@ footer {
     border-top: 1px dotted $footerBorderColor;
     list-style: none;
     padding: 3px;
+    font-size: 12px;
   }
 
   a {

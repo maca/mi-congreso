@@ -4,6 +4,16 @@
 es:
   search: "Buscar"
   all: "Todos"
+  my_congress: "Mi Congreso"
+  start: "Inicio"
+
+  footer:
+    about_us: "Acerca de Nosotros"
+    contact_us: "Contáctanos"
+    related_links: "Ligas de Interés"
+    congress_chamber: "Cámara de Diputados"
+    senate_chamber: "Cámara de Senadores"
+    sil: "Sistema de información legislativa"
 
   members:
     name: "Nombre"
