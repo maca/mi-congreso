@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015073959) do
+ActiveRecord::Schema.define(:version => 20121021205151) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20121015073959) do
     t.datetime "updated_at",                           :null => false
     t.string   "other_sponsor"
     t.integer  "sponsors_count",        :default => 0
+    t.string   "votes_url"
   end
 
   add_index "initiatives", ["member_id"], :name => "index_initiatives_on_member_id"
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20121015073959) do
     t.datetime "photo_updated_at"
     t.string   "twitter"
     t.string   "facebook"
+    t.string   "alternative_name"
   end
 
   add_index "members", ["party_id"], :name => "index_members_on_party_id"
@@ -109,6 +111,11 @@ ActiveRecord::Schema.define(:version => 20121015073959) do
     t.string   "short_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.date    "date"
+    t.integer "number"
   end
 
   create_table "states", :force => true do |t|
@@ -124,5 +131,20 @@ ActiveRecord::Schema.define(:version => 20121015073959) do
     t.datetime "updated_at",                       :null => false
     t.integer  "initiatives_count", :default => 0
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "value",         :limit => 2
+    t.integer  "initiative_id"
+    t.integer  "session_id"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "votes", ["initiative_id"], :name => "index_votes_on_initiative_id"
+  add_index "votes", ["session_id"], :name => "index_votes_on_session_id"
+  add_index "votes", ["value"], :name => "index_votes_on_value"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

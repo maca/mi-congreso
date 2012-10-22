@@ -1,9 +1,10 @@
 class Initiative < ActiveRecord::Base
-  attr_accessible :title, :description, :original_document_url, :presented_at, :member_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor
+  attr_accessible :title, :description, :original_document_url, :presented_at, :member_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor, :votes_url
 
   paginates_per 10
 
   belongs_to :member
+  has_many :member_votes, class_name: "Vote", conditions: "voter_type = 'Member'"
   has_and_belongs_to_many :sponsors, class_name: "Member"
   has_and_belongs_to_many :subjects
 
@@ -34,5 +35,25 @@ class Initiative < ActiveRecord::Base
 
   def calculate_initiatives_count_for_subjects
     self.subjects.each {|s| s.calculate_initiatives_count! }
+  end
+
+  def generate_votes!(session)
+    members_not_found = []
+    votes_created = 0
+    [:for, :against, :neutral, :absent].each do |voter_type|
+      scraper = Scraper::Votes.new(self.votes_url, voter_type)
+      scraper.member_names.each do |member_name|
+        members = Member.where{(name =~ member_name) | (alternative_name =~ member_name)}
+
+        if members.any?
+          vote = Vote.create(voter: members.first, value: voter_type, initiative: self, session: session)
+          votes_created += 1 if vote.id
+        else
+          members_not_found << member_name
+        end
+      end
+    end
+
+    [votes_created, members_not_found]
   end
 end

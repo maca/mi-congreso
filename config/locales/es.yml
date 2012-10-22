@@ -38,10 +38,21 @@ es:
     go_to_original_document: "Ir al documento original"
     all: "Todas"
     and_co_sponsors: " y %{count} más"
+    votes_generated: "Se generaron %{votes_created} votos y no hubo errores!"
+    initiative_or_session_not_found: "No encontré la iniciativa o la session"
+    members_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
+
+  sessions:
+    name: "No. %{number}"
 
   subjects:
     subjects: "Temas"
     all: "Todos"
+
+  votes:
+    generate_votes: "Generar votos para esta iniciativa"
+    select_session_for_votes: "Seleccionar session en la que se votó"
+    fill_votes_url_to_display_form: "Llena el campo con la URL para extraer los votos."
 
 
   election_type:
@@ -55,7 +66,9 @@ es:
       member: "Diputado"
       party: "Partido"
       state: "Estado"
+      session: "Sessión"
       subject: "Tema"
+      vote: "Voto"
 
     attributes:
       initiative:
@@ -70,6 +83,7 @@ es:
         presented_at: "Fecha de presentación"
         views_count: "Número de visitas"
         summary_by: "Resumida por"
+        votes_url: "URL para extraer votos"
 
       member:
         name: "Nombre"
@@ -98,9 +112,20 @@ es:
         name: "Nombre"
         short_name: "Abreviación"
 
+      session:
+        date: "Fecha"
+        number: "Número"
+
       subject:
         name: "Nombre"
         initiatives_count: "No. de Iniciativas"
+
+      vote:
+        value: "Valor"
+        voter: "Votante"
+        voter_type: "Tipo de votante"
+        initiative: "Iniciativa"
+        session: "Sessión"
 
 
 

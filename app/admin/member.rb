@@ -14,6 +14,7 @@ ActiveAdmin.register Member do
   form do |f|
     f.inputs "Member" do
       f.input :name
+      f.input :alternative_name
       f.input :email
       f.input :comission
       f.input :party_id, as: :select, collection: Party.all

@@ -1,0 +1,15 @@
+<div class="panel">
+  <h3><%= t("votes.generate_votes") %></h3>
+
+  <div class="panel_contents">
+    <% if @initiative.votes_url.present? %>
+      <%= form_tag generate_votes_admin_initiative_path(@initiative), method: :put do %>
+        <%= label_tag :session_id, t('votes.select_session_for_votes') %>
+        <%= select_tag :session_id, options_from_collection_for_select(Session.all, :id, :name) %> <br/><br/>
+        <%= submit_tag t("votes.generate_votes") %>
+      <% end %>
+    <% else %>
+      <p><%= t('votes.fill_votes_url_to_display_form') %></p>
+    <% end %>
+  </div>
+</div>

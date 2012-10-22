@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  attr_accessible :birthdate, :birthplace, :comission, :education, :election_type, :email, :name
+  attr_accessible :birthdate, :birthplace, :comission, :education, :election_type, :email, :name, :alternative_name
   attr_accessible :party_id, :political_experience, :private_experience, :state_id, :substitute, :photo
   attr_accessible :twitter, :facebook
 
@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
   belongs_to :party
 
   has_many :initiatives
+  has_many :votes, as: :voter
   has_and_belongs_to_many :co_sponsored_initiatives, class_name: "Initiative"
 
   has_attached_file :photo, :styles => { :thumb => "100x100>" },
