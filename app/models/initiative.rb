@@ -14,6 +14,7 @@ class Initiative < ActiveRecord::Base
   after_save :calculate_initiatives_count_for_subjects
 
   scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
+  scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
 
   def self.search_with_options(query={}, options={})
     search = self.search(query)

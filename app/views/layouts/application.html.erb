@@ -28,6 +28,8 @@
   <%= render "/layouts/header" %>
 
   <div id="main" class="<%= params[:controller] %>">
+    <%= yield :banner %>
+
     <div class="row">
       <div class="twelve columns content">
         <%= yield %>

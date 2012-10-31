@@ -19,16 +19,6 @@
   @include box-shadow(darken($lightBackColor, 30%) 0px 1px 9px);
 }
 
-.section-header {
-  background: $darkBackColor;
-  color: white;
-  font-size: ms(2);
-  padding: $size;
-  text-transform: uppercase;
-
-  @include border-radius($radius);
-}
-
 .sidebar {
   background: $lightBackColor;
   @include border-radius($radius);
@@ -36,6 +26,6 @@
   padding: $size;
   word-wrap: break-word;
 
-  .section-header { font-size: ms(1); margin-top: 0;}
+  .section-header { margin-top: 0;}
 }
 

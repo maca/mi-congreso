@@ -7,6 +7,14 @@ es:
   my_congress: "Mi Congreso"
   start: "Inicio"
 
+  home:
+    title: "Conoce las iniciativas, sigue los pasos de tus diputados y danos tu opinión."
+    mi_congreso_pitch: "En Mi Congreso estamos convencidos de que para exigir nuestros derechos debemos conocer nuestros deberes, y como el Congreso de la Union es la institución encargada de hacer y reformar las leyes que estamos obligados a cumplir, les presentamos esta página para que se enteren de lo que está pasando en el Congreso."
+    latest_initiatives: "Últimas iniciativas"
+    explore: "Explora las iniciativas y participa en la discusión de la creación de leyes"
+    mexicanos: "Por que el Congreso es de todos los mexicanos"
+    about_us: "Acerca de Mi Congreso"
+
   footer:
     about_us: "Acerca de Nosotros"
     contact_us: "Contáctanos"

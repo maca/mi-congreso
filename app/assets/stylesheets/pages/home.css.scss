@@ -1,0 +1,18 @@
+.banner {
+  background: $bannerColor ;
+  height: 259px;
+  @include border-radius(6px);
+  @include background(image-url("hands_background.jpg"),
+                      linear-gradient(#5E544A, #63594F 30%, #645C51 60%, #685E54 95%, #6D665B 100%));
+
+  background-repeat: no-repeat;
+  background-position: right;
+
+  padding: 16px 220px 30px 30px;
+  margin-bottom: 18px;
+
+  h1 {
+    color: #FFF;
+    @include text-shadow($shadowInDark 1px 1px 3px);
+  }
+}

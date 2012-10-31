@@ -1,0 +1,29 @@
+<div class="initiative">
+  <%= subjects(initiative, tag: "span", class: "label label-small radius") %>
+
+  <h4 class="small-title"><%= link_to initiative.title, initiative %></h4>
+
+  <div class="bottom row">
+    <div class="four columns left no-left-padding">
+      <span class="label secondary radius"><%= t("initiatives.presented_at") %></span>
+      <span><%= l(initiative.presented_at, format: :date) %></span>
+    </div>
+
+    <div class="six columns left">
+      <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
+      <% if initiative.member %>
+        <span class="proposer-small <%= party_abbr(initiative.member) %>-small">
+          <%= link_to_sponsors initiative %>
+        </span>
+      <% elsif initiative.other_sponsor %>
+        <span class="proposer-small no-logo"><%= initiative.other_sponsor %></span>
+      <% end %>
+    </div>
+
+    <div class="two columns right">
+      <%= number_with_delimiter(initiative.views_count.to_i) %> <%= t('initiatives.views_count') %>
+    </div>
+  </div>
+</div>
+
+<hr class="separator separator-small">

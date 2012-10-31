@@ -1,3 +1,9 @@
+h1 { font-size: 40px; }
+h2 { font-size: 30px; }
+h3 { font-size: 23px; }
+h4 { font-size: 17px; }
+h5 { font-size: 14px; }
+
 a { color: $mainColor; text-decoration: none; line-height: inherit; }
 a:hover { color: $secondaryColor; text-decoration: underline;}
 a:focus { color: $mainColor; outline: none; }
@@ -63,4 +69,19 @@ a:focus { color: $mainColor; outline: none; }
 
 .inline {
   display: inline-block;
+}
+
+.no-left-padding {
+  padding-left: 0;
+}
+
+.section-header {
+  background: $darkBackColor;
+  color: white;
+  padding: $size;
+  @include border-radius($radius);
+}
+
+.subheader {
+  color: darken(#6F6F6F, 20%);
 }
