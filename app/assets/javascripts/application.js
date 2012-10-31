@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require jquery.pjax
 //= require turbolinks
+//= require turbolinks-analytics
