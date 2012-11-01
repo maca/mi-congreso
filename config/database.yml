@@ -1,0 +1,23 @@
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: unicode
+  database: mi_congreso_<%= Rails.env %>
+  username: postgres
+  password:
+  min_messages: ERROR
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *postgresql
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  # TODO: Add erb-echo of credentials
