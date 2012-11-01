@@ -13,6 +13,7 @@
 }
 
 .disabled .vote .count { background: $disabledColor; }
+.disabled .vote .number { display: none; }
 
 .vote {
   padding: 1px;
