@@ -49,6 +49,8 @@ es:
     votes_generated: "Se generaron %{votes_created} votos y no hubo errores!"
     initiative_or_session_not_found: "No encontré la iniciativa o la session"
     members_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
+    oficial_votes: "Votación oficial"
+    has_not_been_voted: "Aún no se ha votado"
 
   sessions:
     name: "No. %{number}"

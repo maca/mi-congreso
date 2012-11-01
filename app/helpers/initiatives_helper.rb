@@ -25,4 +25,18 @@ module InitiativesHelper
     text << t('initiatives.and_co_sponsors', count: initiative.sponsors_count.to_i) if initiative.sponsors_count.to_i > 0
     link_to text, initiative.member
   end
+
+  def votes_width(initiative, vote_type)
+    if initiative.has_been_voted?
+      initiative.percentage_votes(vote_type) * 100
+    else
+      case vote_type
+      when :for     then 50
+      when :against then 40
+      when :neutral then 10
+      else
+        0
+      end
+    end
+  end
 end

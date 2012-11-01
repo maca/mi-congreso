@@ -8,14 +8,6 @@ class Vote < ActiveRecord::Base
   validates_uniqueness_of :initiative_id, scope: [:voter_id, :voter_type]
 
   def value=(vote_type)
-    if vote_type.is_a?(Symbol)
-      vote_type = case vote_type
-                  when :for then 1
-                  when :against then 2
-                  when :neutral then 3
-                  when :absent then 4
-                  end
-    end
-    write_attribute(:value, vote_type)
+    write_attribute(:value, VoteValue.to_i(vote_type))
   end
 end

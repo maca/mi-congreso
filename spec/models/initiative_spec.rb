@@ -83,4 +83,38 @@ describe Initiative do
       initiative.calculate_initiatives_count_for_subjects
     end
   end
+
+  describe "#has_been_voted?" do
+    before { initiative.save }
+
+    context "initiative has member_votes" do
+      before { FactoryGirl.create(:vote, initiative: initiative) }
+
+      it "returns true" do
+        initiative.has_been_voted?.should be_true
+      end
+    end
+
+    context "initiative doesn't have member_votes" do
+      it "returns false" do
+        initiative.has_been_voted?.should be_false
+      end
+    end
+  end
+
+  describe "percentage_votes" do
+    it "returns the percentage of votes for" do
+      initiative.stub(:total_votes).with(:for) { 100 }
+      initiative.percentage_votes(:for).should eq 0.20
+    end
+  end
+
+  describe "#total_votes" do
+    before { initiative.save }
+
+    it "returns the total votes for" do
+      FactoryGirl.create(:vote, initiative: initiative, value: 1)
+      initiative.total_votes(:for).should eq 1
+    end
+  end
 end

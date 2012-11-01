@@ -57,4 +57,16 @@ class Initiative < ActiveRecord::Base
 
     [votes_created, members_not_found]
   end
+
+  def has_been_voted?
+    self.member_votes.count > 0
+  end
+
+  def percentage_votes(vote_type)
+    self.total_votes(vote_type).to_f / Member::SEATS.to_f
+  end
+
+  def total_votes(vote_type)
+    self.member_votes.where(value: VoteValue.to_i(vote_type)).count
+  end
 end

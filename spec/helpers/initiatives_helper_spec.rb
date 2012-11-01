@@ -60,4 +60,31 @@ describe InitiativesHelper do
       helper.link_to_sponsors(initiative)
     end
   end
+
+  describe "#votes_width" do
+    context "initiative hasn't been votes" do
+      before { initiative.stub(:has_been_voted?) { false } }
+
+      it "returns 0.50 for votes for" do
+        helper.votes_width(initiative, :for).should eq 50
+      end
+
+      it "returns 0.40 for votes against" do
+        helper.votes_width(initiative, :against).should eq 40
+      end
+
+      it "returns 0.10 for votes neutral" do
+        helper.votes_width(initiative, :neutral).should eq 10
+      end
+    end
+
+    context "it has been voted" do
+      before { initiative.stub(:has_been_voted?) { true } }
+
+      it "returns the percentage_votes" do
+        initiative.stub(:percentage_votes).with(:for) { 0.30 }
+        helper.votes_width(initiative, :for).should eq 30
+      end
+    end
+  end
 end

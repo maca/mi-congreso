@@ -4,19 +4,42 @@
 
 <h2><%= @initiative.title %></h2>
 
-<% if @initiative.member %>
-  <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
-  <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
+<div class="row">
+  <div class="six columns">
+    <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
 
-  <% if @initiative.sponsors.present? %>
-    <% @initiative.sponsors.each do |sponsor| %>
-      <div class="proposer-small <%= party_abbr(sponsor) %>-small inline"><%= link_to sponsor.name, sponsor %></div>
+    <% if @initiative.member %>
+      <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
+
+      <% if @initiative.sponsors.present? %>
+        <% @initiative.sponsors.each do |sponsor| %>
+          <div class="proposer-small <%= party_abbr(sponsor) %>-small inline"><%= link_to sponsor.name, sponsor %></div>
+        <% end %>
+      <% end %>
+    <% elsif @initiative.other_sponsor %>
+      <div class="proposer no-logo"><%= @initiative.other_sponsor %></div>
     <% end %>
-  <% end %>
-<% elsif @initiative.other_sponsor %>
-  <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
-  <div class="proposer no-logo"><%= @initiative.other_sponsor %></div>
-<% end %>
+  </div>
+  <div class="six columns">
+    <div class="label secondary radius"><%= t("initiatives.oficial_votes") %></div>
+
+    <div class="votes <%= 'disabled' unless @initiative.has_been_voted? %>">
+      <h2 class="subheader not_yet_voted"><%= t('initiatives.has_not_been_voted') %></h2>
+      <div class="vote for">
+        <span class="count" style="width: <%= votes_width(@initiative, :for) %>%"></span>
+        <span class="number"><%= @initiative.total_votes(:for) %></span>
+      </div>
+      <div class="vote against">
+        <span class="count" style="width: <%= votes_width(@initiative, :against) %>%"></span>
+        <span class="number"><%= @initiative.total_votes(:against) %></span>
+      </div>
+      <div class="vote neutral">
+        <span class="count" style="width: <%= votes_width(@initiative, :neutral) %>%"></span>
+        <span class="number"><%= @initiative.total_votes(:neutral) %></span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h5><%= t('initiatives.description') %></h5>
 <p><%= @initiative.description %></p>

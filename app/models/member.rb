@@ -10,6 +10,8 @@ class Member < ActiveRecord::Base
   has_many :votes, as: :voter
   has_and_belongs_to_many :co_sponsored_initiatives, class_name: "Initiative"
 
+  SEATS = 500
+
   has_attached_file :photo, :styles => { :thumb => "100x100>" },
                             :storage => :s3,
                             :s3_credentials => {

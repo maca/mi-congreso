@@ -1,0 +1,29 @@
+.votes {
+  margin: $size 0;
+  position: relative;
+}
+
+.disabled .not_yet_voted { display: block; }
+.not_yet_voted {
+  position: absolute;
+  @include rotate(-6deg);
+  color: darken($disabledColor, 20%);
+  left: 85px;
+  display: none;
+}
+
+.disabled .vote .count { background: $disabledColor; }
+
+.vote {
+  padding: 1px;
+  margin-bottom: 3px;
+  border: 1px solid $borderColor;
+  height: 20px;
+}
+
+.vote .count { height: 100%; display: inline-block; }
+.vote .number { vertical-align: top; font-weight: bold; }
+
+.for     .count { background: $forColor; }
+.against .count { background: $againstColor; }
+.neutral .count { background: $neutralColor; }
