@@ -1,0 +1,24 @@
+<% classes "six push-three" %>
+
+<h2><%= t("user_interest.select_your_interests") %></h2>
+
+<%= form_tag user_interests_path do %>
+
+  <ul>
+  <% @subjects.each do |subject| %>
+    <li>
+      <%= check_box_tag "user_setup[subject_ids][]", subject.id, false, id: "subject_#{subject.id}" %>
+      <%= label_tag "subject_#{subject.id}", subject.name, class: "inline" %>
+    </li>
+  <% end %>
+  </ul>
+
+  <div class="input">
+    <%= check_box_tag "user_setup[receive_notifications]", true, false %>
+    <%= label_tag "user_setup[receive_notifications]", t("user_interest.notify_about_interests"), class: "very-inline" %>
+  </div>
+
+  <br/>
+
+  <%= submit_tag t("user_interest.save_interests"), class: "button" %>
+<% end %>

@@ -61,6 +61,11 @@ es:
     subjects: "Temas"
     all: "Todos"
 
+  user_interest:
+    select_your_interests: "Selecciona tus temas de interés"
+    notify_about_interests: "¿Deseas que te mantengamos al tanto de nuevas iniciativas que coincidan con tus intereses?"
+    save_interests: "Guardar intereses"
+
   votes:
     generate_votes: "Generar votos para esta iniciativa"
     select_session_for_votes: "Seleccionar session en la que se votó"
@@ -137,6 +142,7 @@ es:
         email: "Correo electrónico"
         password: "Contraseña"
         password_confirmation: "Confirmación de contraseña"
+        interests: "Temas de interés"
 
       vote:
         value: "Valor"

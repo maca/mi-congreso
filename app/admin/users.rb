@@ -4,6 +4,9 @@ ActiveAdmin.register User do
     column :id
     column :name
     column :email
+    column :interests do |user|
+      user.subjects.map(&:name).join(", ")
+    end
     default_actions
   end
 

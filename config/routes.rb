@@ -1,6 +1,6 @@
 MiCongreso::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { :registrations => "registrations" }
 
   ActiveAdmin.routes(self)
 
@@ -11,4 +11,6 @@ MiCongreso::Application.routes.draw do
 
   match "iniciativas/temas/:subject_id" => "initiatives#index", as: :subject_initiatives
   resources :initiatives, only: [:index, :show], path: "iniciativas"
+
+  resources :user_interests, only: [:new, :create]
 end

@@ -70,6 +70,9 @@ a:focus { color: $mainColor; outline: none; }
 .inline {
   display: inline-block;
 }
+.very-inline {
+  display: inline;
+}
 
 .no-left-padding {
   padding-left: 0;
