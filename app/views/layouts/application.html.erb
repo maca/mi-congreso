@@ -28,11 +28,16 @@
 
   <%= render "/layouts/header" %>
 
-  <div id="main" class="<%= params[:controller] %>">
+  <div id="main" class="<%= params[:controller].gsub("/", "-") %>">
     <%= yield :banner %>
 
     <div class="row">
-      <div class="twelve columns content">
+      <div class="<%= yield(:classes).present? ? yield(:classes) : "twelve" %> columns content">
+
+        <div class="row">
+          <div class="twelve columns"><%= flash_messages %></div>
+        </div>
+
         <%= yield %>
       </div>
     </div>

@@ -1,0 +1,12 @@
+<% classes "six push-three" %>
+
+<h2><%= t("passwords.forgot") %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+
+  <%= f.input :email %>
+  <%= f.button :submit, t("passwords.send_me_instructions") %>
+
+<% end %>
+
+<%= render "users/shared/links" %>

@@ -1,0 +1,20 @@
+<% classes "six push-three" %>
+
+<h2><%= t("registrations.edit_info") %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.input :email %>
+  <%= f.input :password, hint: t("registrations.leave_blank_if_unchanged") %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :current_password %>
+
+  <%= f.button :submit %>
+<% end %>
+
+<h3><%= t("registrations.cancel_my_account") %></h3>
+
+<p><%= link_to t("registrations.cancel_account_link"), registration_path(resource_name), :data => { :confirm => t("registrations.are_you_sure") }, :method => :delete %>.</p>
+
+<%= link_to t("registrations.back"), :back %>

@@ -27,6 +27,7 @@ gem "paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 gem 'turbolinks'
 gem 'squeel'
+gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
@@ -35,6 +36,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'rb-fsevent', '~> 0.9.1', require: false
   gem 'zeus'
+  gem "letter_opener"
 end
 
 group :development, :test do

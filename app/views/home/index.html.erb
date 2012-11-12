@@ -1,6 +1,10 @@
 <% content_for :banner do %>
 <div class="row banner">
   <h1><%= t('home.title') %></h1>
+
+  <br/>
+
+  <%= link_to t("home.register_and_participate"), new_user_registration_path, class: "button large" %>
 </div>
 <% end %>
 

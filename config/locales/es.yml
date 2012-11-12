@@ -14,6 +14,7 @@ es:
     explore: "Explora las iniciativas y participa en la discusión de la creación de leyes"
     mexicanos: "Por que el Congreso es de todos los mexicanos"
     about_us: "Acerca de Mi Congreso"
+    register_and_participate: "Regístrate y participa!"
 
   footer:
     about_us: "Acerca de Nosotros"
@@ -65,7 +66,6 @@ es:
     select_session_for_votes: "Seleccionar session en la que se votó"
     fill_votes_url_to_display_form: "Llena el campo con la URL para extraer los votos."
 
-
   election_type:
     relativa: "Mayoría relativa"
     proporcional: "Representación proporcional"
@@ -79,6 +79,7 @@ es:
       state: "Estado"
       session: "Sessión"
       subject: "Tema"
+      user: "Usuario"
       vote: "Voto"
 
     attributes:
@@ -130,6 +131,12 @@ es:
       subject:
         name: "Nombre"
         initiatives_count: "No. de Iniciativas"
+
+      user:
+        name: "Nombre"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de contraseña"
 
       vote:
         value: "Valor"

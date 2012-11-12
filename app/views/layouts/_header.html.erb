@@ -1,4 +1,17 @@
 <header class="row">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="session-bar right">
+        <% if user_signed_in? %>
+          <span><%= t("sessions.hi", name: current_user.name) %>, </span>
+          <%= link_to t("sessions.log_out"), destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to t("sessions.login"), new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <div class="five columns">
     <%= link_to image_tag("logo.png"), root_path %>
   </div>

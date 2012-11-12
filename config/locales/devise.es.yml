@@ -1,6 +1,29 @@
 # Additional translations at http://github.com/plataformatec/devise/wiki/I18n
 
 es:
+  sessions:
+    login: "Iniciar sessión"
+    go_in: "Entrar"
+    hi: "Hola %{name}"
+    log_out: "Salir"
+
+  registrations:
+    sign_up: "Regístrate"
+    sign_up_and_participate: "Registrate y participa!"
+    register_me: "Regístrame"
+    sign_in_with: "Regístrate con %{provider}"
+    edit_info: "Editar mi information"
+    leave_blank_if_unchanged: "(Déjala en blanco si no la quieres cambiar)"
+    cancel_my_account: "Cancelar mi cuenta"
+    cancel_account_link: "Haz click aquí para cancelar tu cuenta"
+    are_you_sure: "¿Estás seguro(a)?"
+    back: "Regresar"
+
+  passwords:
+    forgot: "¿Olvidaste tu contraseña?"
+    send_me_instructions: "Enviar instrucciones para cambiar contraseña"
+    change: "Cambiar contraseña"
+
   errors:
     messages:
       expired: "ha expirado, por favor pida uno nuevo"

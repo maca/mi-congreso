@@ -1,0 +1,15 @@
+<% classes "six push-three" %>
+
+<h2><%= t("registrations.sign_up_and_participate") %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+
+  <%= f.button :submit, t("registrations.register_me") %>
+<% end %>
+
+<%= render "users/shared/links" %>
