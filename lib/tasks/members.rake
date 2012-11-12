@@ -28,4 +28,17 @@ namespace :members do
                     photo: photo)
     end
   end
+
+  desc "Add photo to members"
+  task :add_photo => :environment do
+    CSV.foreach("#{Rails.root.to_s}/db/seeds/members.csv", headers: true) do |row|
+      photo = open(row["url_foto"]) rescue nil
+      member = Member.find_by_email(row["email"])
+
+      if member && photo
+        member.photo = photo
+        member.save
+      end
+    end
+  end
 end
