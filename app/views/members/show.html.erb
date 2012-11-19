@@ -25,7 +25,7 @@
       </div>
 
       <span class="label radius"><%= t('members.email') %></span>
-      <p><%= link_to @member.email, "mailto:#{@member.email}" %></p>
+      <p><%= link_to truncate(@member.email, length: 27), "mailto:#{@member.email}" %></p>
 
       <% if @member.twitter.present? %>
       <span class="label radius"><%= t('members.twitter') %></span>
