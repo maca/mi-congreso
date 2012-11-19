@@ -40,6 +40,11 @@ describe Initiative do
       relation.should_receive(:sort_order).with("views_count")
       Initiative.search_with_options({}, order: "views_count")
     end
+
+    it "defaults to ordering by updated_at" do
+      relation.should_receive(:sort_order).with("updated_at_desc")
+      Initiative.search_with_options({}, {order: nil})
+    end
   end
 
   describe "#by_subject_id" do
