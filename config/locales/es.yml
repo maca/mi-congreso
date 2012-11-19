@@ -28,6 +28,7 @@ es:
   members:
     name: "Nombre"
     party: "Partido"
+    state: "Estado"
     email: "Correo electrónico"
     election_type: "Tipo de elección"
     substitute: "Suplente"

@@ -18,10 +18,10 @@
       <%= f.text_field :name_cont %>
     </div>
     <div class="three column">
-      <%= f.select :party_id_eq, [["Todos", nil]] + Party.all.collect {|p| [p.name, p.id]} %>
+      <%= f.select :party_id_eq, [["Todos", nil]] + Party.order(:name).collect {|p| [p.name, p.id]} %>
     </div>
     <div class="three column">
-      <%= f.select :state_id_eq, [["Todos", nil]] + State.all.collect {|p| [p.name, p.id]} %>
+      <%= f.select :state_id_eq, [["Todos", nil]] + State.order(:name).collect {|p| [p.name, p.id]} %>
     </div>
 
     <div class="three column">
