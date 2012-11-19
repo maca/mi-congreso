@@ -2,7 +2,7 @@
 
 es:
   sessions:
-    login: "Iniciar sessión"
+    login: "Iniciar sesión"
     go_in: "Entrar"
     hi: "Hola %{name}"
     log_out: "Salir"
