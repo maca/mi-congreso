@@ -23,7 +23,7 @@ class Initiative < ActiveRecord::Base
     initiatives = search.result
     initiatives = initiatives.includes(:subjects, :member => :party)
     initiatives = initiatives.page(options[:page])
-    initiatives = initiatives.sort_order("#{options[:order]}")
+    initiatives = initiatives.sort_order("initiatives.#{options[:order]}")
     initiatives
   end
 

@@ -39,6 +39,6 @@ class Member < ActiveRecord::Base
   end
 
   def self.search_with_party_and_state(query)
-    self.includes(:party, :state).search(query)
+    self.includes(:party, :state).order("members.name ASC").search(query)
   end
 end
