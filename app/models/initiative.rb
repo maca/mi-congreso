@@ -4,7 +4,9 @@ class Initiative < ActiveRecord::Base
   paginates_per 10
 
   belongs_to :member
+  has_many :votes
   has_many :member_votes, class_name: "Vote", conditions: "voter_type = 'Member'"
+  has_many :user_votes, class_name: "Vote", conditions: "voter_type = 'User'"
   has_and_belongs_to_many :sponsors, class_name: "Member"
   has_and_belongs_to_many :subjects
 
@@ -70,5 +72,9 @@ class Initiative < ActiveRecord::Base
 
   def total_votes(vote_type)
     self.member_votes.where(value: VoteValue.to_i(vote_type)).count
+  end
+
+  def create_user_vote(user, vote_value)
+    self.votes.create(voter: user, value: VoteValue.to_i(vote_value))
   end
 end

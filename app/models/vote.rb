@@ -6,6 +6,8 @@ class Vote < ActiveRecord::Base
   belongs_to :voter, polymorphic: true
 
   validates_uniqueness_of :initiative_id, scope: [:voter_id, :voter_type]
+  validates :value, :voter_id, :voter_type, presence: true
+  validates_inclusion_of :value, in: 1..3
 
   def value=(vote_type)
     write_attribute(:value, VoteValue.to_i(vote_type))

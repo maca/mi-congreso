@@ -10,7 +10,9 @@ MiCongreso::Application.routes.draw do
   resources :members, only: [:index, :show], path: "diputados"
 
   match "iniciativas/temas/:subject_id" => "initiatives#index", as: :subject_initiatives
-  resources :initiatives, only: [:index, :show], path: "iniciativas"
+  resources :initiatives, only: [:index, :show], path: "iniciativas" do
+    resources :user_votes, only: [:create]
+  end
 
   resources :user_interests, only: [:new, :create]
 end

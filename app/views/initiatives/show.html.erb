@@ -1,62 +1,82 @@
 <% title @initiative.title %>
 
-<%= subjects(@initiative, tag: "div", class: "label label-large radius inline") %>
-
-<h2><%= @initiative.title %></h2>
-
 <div class="row">
-  <div class="six columns">
-    <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
+  <div class="nine columns">
+    <%= subjects(@initiative, tag: "div", class: "label label-large radius inline") %>
 
-    <% if @initiative.member %>
-      <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
+    <h2><%= @initiative.title %></h2>
 
-      <% if @initiative.sponsors.present? %>
-        <% @initiative.sponsors.each do |sponsor| %>
-          <div class="proposer-small <%= party_abbr(sponsor) %>-small inline"><%= link_to sponsor.name, sponsor %></div>
+    <div class="row">
+      <div class="six columns">
+        <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
+
+        <% if @initiative.member %>
+          <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
+
+          <% if @initiative.sponsors.present? %>
+            <% @initiative.sponsors.each do |sponsor| %>
+              <div class="proposer-small <%= party_abbr(sponsor) %>-small inline"><%= link_to sponsor.name, sponsor %></div>
+            <% end %>
+          <% end %>
+        <% elsif @initiative.other_sponsor %>
+          <div class="proposer no-logo"><%= @initiative.other_sponsor %></div>
         <% end %>
-      <% end %>
-    <% elsif @initiative.other_sponsor %>
-      <div class="proposer no-logo"><%= @initiative.other_sponsor %></div>
-    <% end %>
-  </div>
-  <div class="six columns">
-    <div class="label secondary radius"><%= t("initiatives.oficial_votes") %></div>
+      </div>
+      <div class="six columns">
+        <div class="label secondary radius"><%= t("initiatives.oficial_votes") %></div>
 
-    <div class="votes <%= 'disabled' unless @initiative.has_been_voted? %>">
-      <h2 class="subheader not_yet_voted"><%= t('initiatives.has_not_been_voted') %></h2>
-      <div class="vote for">
-        <span class="count" style="width: <%= votes_width(@initiative, :for) %>%"></span>
-        <span class="number"><%= @initiative.total_votes(:for) %></span>
+        <div class="votes <%= 'disabled' unless @initiative.has_been_voted? %>">
+          <h3 class="subheader not_yet_voted"><%= t('initiatives.has_not_been_voted') %></h3>
+          <div class="vote for">
+            <span class="count" style="width: <%= votes_width(@initiative, :for) %>%"></span>
+            <span class="number"><%= @initiative.total_votes(:for) %></span>
+          </div>
+          <div class="vote against">
+            <span class="count" style="width: <%= votes_width(@initiative, :against) %>%"></span>
+            <span class="number"><%= @initiative.total_votes(:against) %></span>
+          </div>
+          <div class="vote neutral">
+            <span class="count" style="width: <%= votes_width(@initiative, :neutral) %>%"></span>
+            <span class="number"><%= @initiative.total_votes(:neutral) %></span>
+          </div>
+        </div>
       </div>
-      <div class="vote against">
-        <span class="count" style="width: <%= votes_width(@initiative, :against) %>%"></span>
-        <span class="number"><%= @initiative.total_votes(:against) %></span>
-      </div>
-      <div class="vote neutral">
-        <span class="count" style="width: <%= votes_width(@initiative, :neutral) %>%"></span>
-        <span class="number"><%= @initiative.total_votes(:neutral) %></span>
+    </div>
+
+    <h5><%= t('initiatives.description') %></h5>
+    <p><%= @initiative.description %></p>
+
+    <% if @initiative.original_document_url.present? %>
+    <p>
+      <%= link_to t('initiatives.go_to_original_document'), @initiative.original_document_url, class: "small button", target: "_blank" %>
+    </p>
+    <% end %>
+
+    <% if @initiative.summary_by.present? %>
+    <p>
+      <span class="label secondary radius"><%= t("initiatives.summary_by") %></span>
+      <span><%= @initiative.summary_by %></span>
+    </p>
+    <% end %>
+
+    <br/>
+
+    <%= render "disqus" %>
+  </div>
+
+  <div class="three columns">
+    <div class="sidebar">
+      <div class="user-support">
+        <h4><%= t('initiatives.vote_on_this_initiative') %></h4>
+
+        <% if user_signed_in? %>
+          <%= link_to t("votes.for"), initiative_user_votes_path(@initiative, value: "for"), class: "button button-for", method: :post, remote: true %>
+          <%= link_to t("votes.against"), initiative_user_votes_path(@initiative, value: "against"), class: "button button-against", method: :post, remote: true %>
+        <% else %>
+          <%= link_to t("votes.for"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button button-for" %>
+          <%= link_to t("votes.against"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button button-against" %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<h5><%= t('initiatives.description') %></h5>
-<p><%= @initiative.description %></p>
-
-<% if @initiative.original_document_url.present? %>
-<p>
-  <%= link_to t('initiatives.go_to_original_document'), @initiative.original_document_url, class: "small button" %>
-</p>
-<% end %>
-
-<% if @initiative.summary_by.present? %>
-<p>
-  <span class="label secondary radius"><%= t("initiatives.summary_by") %></span>
-  <span><%= @initiative.summary_by %></span>
-</p>
-<% end %>
-
-<br/>
-
-<%= render "disqus" %>

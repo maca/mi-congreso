@@ -9,11 +9,15 @@ module ApplicationHelper
   end
 
   def flash_messages
-    return nil if flash.empty?
+    return nil if flash.empty? && params[:message].blank?
 
-    flash.map do |type, message|
-      type = :success if type.to_s == "notice"
-      content_tag(:div, message, class: "alert-box #{type} margin-top")
-    end.join.html_safe
+    if flash.any?
+      flash.map do |type, message|
+        type = :success if type.to_s == "notice"
+        content_tag(:div, message, class: "alert-box #{type} margin-top")
+      end.join.html_safe
+    elsif params[:message]
+      content_tag(:div, t(params[:message], default: params[:message]), class: "alert-box margin-top")
+    end
   end
 end

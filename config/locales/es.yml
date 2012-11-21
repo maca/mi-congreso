@@ -54,6 +54,7 @@ es:
     members_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
     oficial_votes: "Votación oficial"
     has_not_been_voted: "Aún no se ha votado"
+    vote_on_this_initiative: "Vota en esta iniciativa"
 
   sessions:
     name: "No. %{number}"
@@ -71,6 +72,9 @@ es:
     generate_votes: "Generar votos para esta iniciativa"
     select_session_for_votes: "Seleccionar session en la que se votó"
     fill_votes_url_to_display_form: "Llena el campo con la URL para extraer los votos."
+    for: "Favor"
+    against: "Contra"
+    register: "Te invitamos a registrarte para poder votar"
 
   election_type:
     relativa: "Mayoría relativa"

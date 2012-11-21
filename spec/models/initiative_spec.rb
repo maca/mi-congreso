@@ -122,4 +122,16 @@ describe Initiative do
       initiative.total_votes(:for).should eq 1
     end
   end
+
+  describe "#create_user_vote" do
+    let(:user) { FactoryGirl.create(:user)}
+    before { initiative.save }
+
+    it "stores the vote and links it to the user" do
+      initiative.create_user_vote(user, "for")
+      vote = initiative.user_votes.first
+      vote.voter.should eq user
+      vote.value.should eq 1
+    end
+  end
 end

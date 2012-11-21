@@ -92,3 +92,7 @@ a:focus { color: $mainColor; outline: none; }
 .subheader {
   color: darken(#6F6F6F, 20%);
 }
+
+div.alert-box {
+  background-color: darken($darkPink, 10%);
+}

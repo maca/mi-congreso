@@ -1,0 +1,9 @@
+@mixin button($color, $radius: 5px) {
+  border-color: darken($color, 30%);
+  @include background(linear-gradient($color, darken($color, 30%)));
+  @include border-radius($radius);
+
+  &:hover {
+    @include background(linear-gradient(lighten($color, 10%), darken($color, 20%)));
+  }
+}

@@ -9,6 +9,6 @@ class UserInterestsController < ApplicationController
   def create
     @user_setup = UserSetup.new(current_user, params[:user_setup])
     @user_setup.save
-    redirect_to initiatives_path
+    redirect_to stored_location_for(:user) || initiatives_path
   end
 end

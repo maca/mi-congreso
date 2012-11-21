@@ -45,7 +45,7 @@
 
 .initiatives {
   .label-large { margin: 15px 6px 0 0; }
-  .sidebar {margin-top: 0;}
+  .subjects-sidebar {margin-top: 0;}
 }
 
 .subject {
@@ -59,3 +59,11 @@
 .pri-small    { @include parties-small-sprite(pri); }
 .pt-small     { @include parties-small-sprite(pt); }
 .pvem-small   { @include parties-small-sprite(pvem); }
+
+.button-for {
+  @include button(lighten($forColor, 5%));
+}
+
+.button-against {
+  @include button($againstColor);
+}
