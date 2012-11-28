@@ -1,7 +1,7 @@
 module InitiativesHelper
 
   def markdownize(text)
-    HTML::Pipeline::MarkdownFilter.new(text).call.html_safe
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true).render(text).html_safe
   end
 
   def subjects(initiative, options={})

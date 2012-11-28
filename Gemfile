@@ -28,7 +28,7 @@ gem 'aws-sdk', '~> 1.3.4'
 gem 'turbolinks'
 gem 'squeel'
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
-gem 'html-pipeline'
+gem 'redcarpet'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
