@@ -1,5 +1,9 @@
 module InitiativesHelper
 
+  def markdownize(text)
+    HTML::Pipeline::MarkdownFilter.new(text).call.html_safe
+  end
+
   def subjects(initiative, options={})
     if initiative.subjects.present?
       initiative.subjects.map do |subject|

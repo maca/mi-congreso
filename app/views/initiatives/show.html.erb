@@ -44,7 +44,9 @@
     </div>
 
     <h5><%= t('initiatives.description') %></h5>
-    <p><%= @initiative.description %></p>
+    <div class="markdown">
+      <%= markdownize @initiative.description %>
+    </div>
 
     <% if @initiative.original_document_url.present? %>
     <p>
