@@ -12,4 +12,8 @@ class Vote < ActiveRecord::Base
   def value=(vote_type)
     write_attribute(:value, VoteValue.to_i(vote_type))
   end
+
+  def value_object
+    VoteValue.new(self.value)
+  end
 end

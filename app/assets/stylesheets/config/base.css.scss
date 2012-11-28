@@ -42,6 +42,39 @@ a:focus { color: $mainColor; outline: none; }
   }
 }
 
+$secondaryButtonColor: #C65273;
+$btnSmallBase: 6px;
+
+.button-secondary {
+  background: $secondaryButtonColor;
+  border: 1px solid darken(($secondaryButtonColor), 15%);
+  @include box-shadow(0 1px 0 $shinyEdge inset);
+
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0;
+  padding: $btnSmallBase ($btnSmallBase * 2) ($btnSmallBase + 1);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  @include single-transition(background-color, .15s, ease-in-out);
+
+  &:hover, &:focus {
+    color: $white;
+    background-color: darken(($secondaryButtonColor), 10%);
+    text-decoration: none;
+  }
+  &:active  {
+    @include box-shadow(0 1px 0 $darkEdge inset);
+  }
+}
+
+
+
 .label {
   background: $pink;
   margin-right: 3px;

@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+
+  <% if @user_vote = @initiative.vote_for(current_user) %>
+    <h4 class="value_<%= @user_vote.value_object %>"><%= t("initiatives.voted_#{@user_vote.value_object}") %></h4>
+  <% else %>
+    <%= link_to t("votes.for"), initiative_user_votes_path(@initiative, value: "for"), class: "button-secondary button-for", method: :post, remote: true %>
+    <%= link_to t("votes.against"), initiative_user_votes_path(@initiative, value: "against"), class: "button-secondary button-against", method: :post, remote: true %>
+  <% end %>
+<% else %>
+  <%= link_to t("votes.for"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button-secondary button-for" %>
+  <%= link_to t("votes.against"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button-secondary button-against" %>
+<% end %>

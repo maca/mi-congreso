@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Initiative do
-  let(:initiative) { FactoryGirl.build(:initiative, views_count: 0) }
+  let(:initiative) { FactoryGirl.create(:initiative, views_count: 0) }
   let(:search) { mock(:search).as_null_object }
   let(:relation) { mock(:relation).as_null_object }
   let(:subject) { mock_model(Subject).as_null_object }
@@ -58,10 +58,6 @@ describe Initiative do
   end
 
   describe "#increase_views_count!" do
-    before(:each) do
-      initiative.save
-    end
-
     it "should increase the views count by 1" do
       initiative.increase_views_count!
       initiative.reload
@@ -70,10 +66,6 @@ describe Initiative do
   end
 
   describe "#calculate_sponsors_count" do
-    before(:each) do
-      initiative.save
-    end
-
     it "should calculate the sponsors count" do
       initiative.sponsors << FactoryGirl.create(:member)
       initiative.calculate_sponsors_count
@@ -90,8 +82,6 @@ describe Initiative do
   end
 
   describe "#has_been_voted?" do
-    before { initiative.save }
-
     context "initiative has member_votes" do
       before { FactoryGirl.create(:vote, initiative: initiative) }
 
@@ -115,8 +105,6 @@ describe Initiative do
   end
 
   describe "#total_votes" do
-    before { initiative.save }
-
     it "returns the total votes for" do
       FactoryGirl.create(:vote, initiative: initiative, value: 1)
       initiative.total_votes(:for).should eq 1
@@ -125,13 +113,63 @@ describe Initiative do
 
   describe "#create_user_vote" do
     let(:user) { FactoryGirl.create(:user)}
-    before { initiative.save }
 
     it "stores the vote and links it to the user" do
       initiative.create_user_vote(user, "for")
       vote = initiative.user_votes.first
       vote.voter.should eq user
       vote.value.should eq 1
+    end
+  end
+
+  describe "#vote_for" do
+    context "user votes" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      it "returns the vote for the user" do
+        vote = initiative.create_user_vote(user, "for")
+        initiative.vote_for(user).should eq vote
+      end
+    end
+  end
+
+  describe "#total_user_votes_count" do
+    let(:user1) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
+
+    it "calculates the total amount of user votes" do
+      initiative.create_user_vote(user1, "for")
+      initiative.create_user_vote(user2, "against")
+      initiative.total_user_votes_count.should eq 2
+    end
+  end
+
+  describe "user_votes_count" do
+    let(:user1) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
+
+    it "calculates the amount of user votes for" do
+      initiative.create_user_vote(user1, "for")
+      initiative.create_user_vote(user2, "against")
+      initiative.user_votes_count("for").should eq 1
+    end
+
+    it "calculates the amount of user votes against" do
+      initiative.create_user_vote(user1, "for")
+      initiative.create_user_vote(user2, "against")
+      initiative.user_votes_count("against").should eq 1
+    end
+  end
+
+  describe "#users_support_percentage" do
+    it "returns the percentage of user support" do
+      initiative.stub(:user_votes_count).with("for") { 10 }
+      initiative.stub(:total_user_votes_count) { 100 }
+      initiative.users_support_percentage.should eq 0.10
+    end
+
+    it "returns 0 when there are no votes" do
+      initiative.users_support_percentage.should eq 0
     end
   end
 end

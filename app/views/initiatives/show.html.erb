@@ -69,13 +69,20 @@
       <div class="user-support">
         <h4><%= t('initiatives.vote_on_this_initiative') %></h4>
 
-        <% if user_signed_in? %>
-          <%= link_to t("votes.for"), initiative_user_votes_path(@initiative, value: "for"), class: "button button-for", method: :post, remote: true %>
-          <%= link_to t("votes.against"), initiative_user_votes_path(@initiative, value: "against"), class: "button button-against", method: :post, remote: true %>
-        <% else %>
-          <%= link_to t("votes.for"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button button-for" %>
-          <%= link_to t("votes.against"), new_user_registration_path(message: "votes.register", return_to: initiative_path(@initiative)), class: "button button-against" %>
-        <% end %>
+        <div class="vote-stats">
+          <p class="<%= @initiative.users_support_percentage > 0.5 ? 'supported' : 'not-supported' %>">
+            <%= t("initiatives.users_support_percentage", percentage: number_to_percentage(@initiative.users_support_percentage*100, precision: 0)) %>
+          </p>
+
+          <p class="notes">
+            <%= t("initiatives.in_favor", count: @initiative.user_votes_count("for")) %>  /
+            <%= t("initiatives.opposed", count: @initiative.user_votes_count("against")) %>
+          </p>
+        </div>
+
+        <div class="voting-actions">
+          <%= render "voting_actions" %>
+        </div>
       </div>
     </div>
   </div>

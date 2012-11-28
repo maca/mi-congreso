@@ -54,7 +54,12 @@ es:
     members_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
     oficial_votes: "Votación oficial"
     has_not_been_voted: "Aún no se ha votado"
-    vote_on_this_initiative: "Vota en esta iniciativa"
+    vote_on_this_initiative: "Vota por esta iniciativa"
+    voted_for: "Apoyas esta iniciativa"
+    voted_against: "Estas en contra de esta iniciativa"
+    users_support_percentage: "%{percentage} de apoyo ciudadano"
+    in_favor: "%{count} a favor"
+    opposed: "%{count} en contra"
 
   sessions:
     name: "No. %{number}"

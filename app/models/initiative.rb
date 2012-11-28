@@ -77,4 +77,21 @@ class Initiative < ActiveRecord::Base
   def create_user_vote(user, vote_value)
     self.votes.create(voter: user, value: VoteValue.to_i(vote_value))
   end
+
+  def vote_for(user)
+    self.user_votes.where(voter_id: user.id).first
+  end
+
+  def total_user_votes_count
+    @total_user_votes_count ||= self.user_votes.count
+  end
+
+  def user_votes_count(vote_type)
+    self.user_votes.where(value: VoteValue.to_i(vote_type)).count
+  end
+
+  def users_support_percentage
+    return 0 unless total_user_votes_count > 0
+    user_votes_count("for").to_f / total_user_votes_count.to_f
+  end
 end

@@ -60,10 +60,54 @@
 .pt-small     { @include parties-small-sprite(pt); }
 .pvem-small   { @include parties-small-sprite(pvem); }
 
+.vote-stats {
+  padding: 9px;
+  background: darken($lightBackColor, 8%);
+  border: 1px solid $borderColor;
+  margin-bottom: 18px;
+  @include border-radius(5px);
+  @include box-shadow($borderColor 0px 0px 6px);
+
+  p {
+    margin: 0;
+    @include text-shadow(#FFFFFF 0px 1px 0px);
+  }
+
+  .notes {
+    font-size: 12px;
+  }
+}
+
 .button-for {
-  @include button(lighten($forColor, 5%));
+  padding: 6px 28px 7px;
+  background: $forColor;
+  border: 1px solid darken(($forColor), 15%);
+
+  &:hover, &:focus { background-color: darken(($forColor), 10%); }
 }
 
 .button-against {
-  @include button($againstColor);
+  padding: 6px 28px 7px;
+}
+
+.value_for {
+  color: $forColor;
+}
+
+.value_against {
+  color: $againstColor;
+}
+
+.user-support {
+  text-align: center;
+}
+
+.supported {
+  font-weight: bold;
+  color: darken($forColor, 15%);
+}
+
+.not-supported {
+  font-weight: bold;
+  color: darken($againstColor, 15%);
 }

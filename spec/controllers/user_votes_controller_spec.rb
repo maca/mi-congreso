@@ -13,13 +13,13 @@ describe UserVotesController do
 
     it "finds the initiative" do
       Initiative.should_receive(:find).with("1")
-      post :create, initiative_id: 1
+      post :create, initiative_id: 1, format: :js
       assigns(:initiative).should eq initiative
     end
 
     it "creates the vote" do
       initiative.should_receive(:create_user_vote).with(user, "for")
-      post :create, initiative_id: 1, value: "for"
+      post :create, initiative_id: 1, value: "for", format: :js
     end
   end
 
