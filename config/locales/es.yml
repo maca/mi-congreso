@@ -134,6 +134,7 @@ es:
       party:
         name: "Nombre"
         short_name: "Abreviación"
+        official_id: "ID Oficial"
 
       state:
         name: "Nombre"
