@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
   <% if @user_vote = @initiative.vote_for(current_user) %>
     <h4 class="value_<%= @user_vote.value_object %>"><%= t("initiatives.voted_#{@user_vote.value_object}") %></h4>
   <% else %>

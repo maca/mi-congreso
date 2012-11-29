@@ -1,0 +1,8 @@
+<p class="<%= @initiative.users_support_percentage > 0.5 ? 'supported' : 'not-supported' %>">
+  <%= t("initiatives.users_support_percentage", percentage: number_to_percentage(@initiative.users_support_percentage*100, precision: 0)) %>
+</p>
+
+<p class="notes">
+  <%= t("initiatives.in_favor", count: @initiative.user_votes_count("for")) %>  /
+  <%= t("initiatives.opposed", count: @initiative.user_votes_count("against")) %>
+</p>

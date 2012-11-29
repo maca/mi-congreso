@@ -60,7 +60,7 @@
 .pt-small     { @include parties-small-sprite(pt); }
 .pvem-small   { @include parties-small-sprite(pvem); }
 
-.vote-stats {
+.voting-stats {
   padding: 9px;
   background: darken($lightBackColor, 8%);
   border: 1px solid $borderColor;
