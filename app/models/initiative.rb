@@ -19,7 +19,7 @@ class Initiative < ActiveRecord::Base
   scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
 
   def self.search_with_options(query={}, options={})
-    options[:order] ||= "updated_at_desc"
+    options[:order] ||= "created_at_desc"
 
     search = self.search(query)
     initiatives = search.result

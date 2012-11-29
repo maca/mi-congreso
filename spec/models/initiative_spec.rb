@@ -41,8 +41,8 @@ describe Initiative do
       Initiative.search_with_options({}, order: "views_count")
     end
 
-    it "defaults to ordering by updated_at" do
-      relation.should_receive(:sort_order).with("initiatives.updated_at_desc")
+    it "defaults to ordering by created_at" do
+      relation.should_receive(:sort_order).with("initiatives.created_at_desc")
       Initiative.search_with_options({}, {order: nil})
     end
   end
