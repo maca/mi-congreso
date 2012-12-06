@@ -5,6 +5,7 @@ class Assistance < ActiveRecord::Base
   belongs_to :session
 
   validates :member_id, :session_id, :value, presence: true
+  validates_uniqueness_of :member_id, scope: :session_id
 
   def self.create_from_scraper(session, member_assistance)
     member = Member.find_by_name(member_assistance.name)

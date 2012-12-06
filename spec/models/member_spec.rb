@@ -53,4 +53,11 @@ describe Member do
       member.all_initiatives.should eq [i2,i3,i1]
     end
   end
+
+  describe "#assistance_stats" do
+    it "initializes a member assistance stats object" do
+      MemberAssistanceStats.should_receive(:new).with(member)
+      member.assistance_stats
+    end
+  end
 end

@@ -16,6 +16,14 @@
         <h6><%= t('members.no_initiatives_sponsored', name: @member.name) %></h6>
       <% end %>
     </div>
+
+    <hr/>
+
+    <div class="label secondary radius"><%= t("members.assistances") %></div>
+    <h4>
+      <%= number_to_percentage(@member.assistance_stats.assisted_percentage * 100) %>
+      <%= t("members.assistances_counts", assisted: @member.assistance_stats.assisted_count, total: @member.assistance_stats.total_count) %>
+    </h4>
   </div>
 
   <div class="three columns">

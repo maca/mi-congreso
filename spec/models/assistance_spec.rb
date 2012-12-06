@@ -19,6 +19,20 @@ describe Assistance do
       assistance.value = nil
       assistance.should_not be_valid
     end
+
+    context "uniqueness" do
+      before do
+        FactoryGirl.create(:assistance, member_id: 1, session_id: 1)
+      end
+
+      it "should not be valid with the same session and member" do
+        Assistance.new(member_id: 1, session_id: 1, value: 1).should_not be_valid
+      end
+
+      it "should be valid with the same member and different session" do
+        Assistance.new(member_id: 1, session_id: 2, value: 1).should be_valid
+      end
+    end
   end
 
   describe ".create_from_scraper" do

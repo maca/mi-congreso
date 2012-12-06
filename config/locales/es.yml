@@ -36,6 +36,8 @@ es:
     members: "Diputados"
     no_initiatives_sponsored: "%{name} aún no ha presentado ninguna iniciativa."
     sponsored_initiatives: "Inciativas presentadas"
+    assistances: "Asistencias a sesiones"
+    assistances_counts: "(%{assisted} de %{total})"
 
   initiatives:
     initiatives: "Iniciativas"
