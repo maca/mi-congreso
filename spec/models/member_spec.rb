@@ -14,6 +14,18 @@ describe Member do
     end
   end
 
+  describe "#find_by_name" do
+    it "finds a member by it's name" do
+      member = FactoryGirl.create(:member, name: "Pancho Lopez")
+      Member.find_by_name("Pancho Lopez").should eq member
+    end
+
+    it "finds a member by the alternate name" do
+      member = FactoryGirl.create(:member, alternative_name: "Pancho Lopez")
+      Member.find_by_name("Pancho Lopez").should eq member
+    end
+  end
+
   describe "#all_initiatives" do
     it "returns the initiatives where the member is the main sponsor" do
       member.should_receive(:initiatives) { [initiative] }

@@ -63,6 +63,9 @@ es:
 
   sessions:
     name: "No. %{number}"
+    generate_assistances: "Generar asistencias"
+    fill_number_to_display_button: "Ingresa el número de la sesión para poder generar las asistencias"
+    assistances_generated: "Se generaron %{count} asistencias para esta sesión"
 
   subjects:
     subjects: "Temas"
@@ -88,6 +91,7 @@ es:
   activerecord:
     models:
       admin_user: "Administrador"
+      assistance: "Asistencia"
       initiative: "Iniciativa"
       member: "Diputado"
       party: "Partido"
@@ -98,6 +102,11 @@ es:
       vote: "Voto"
 
     attributes:
+      assistance:
+        member: "Diputado"
+        session: "Sesión"
+        value: "Valor"
+
       initiative:
         title: "Título"
         member: "Diputado"

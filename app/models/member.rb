@@ -9,6 +9,7 @@ class Member < ActiveRecord::Base
   has_many :initiatives
   has_many :votes, as: :voter
   has_and_belongs_to_many :co_sponsored_initiatives, class_name: "Initiative"
+  has_many :assistances
 
   SEATS = 500
 
@@ -40,5 +41,9 @@ class Member < ActiveRecord::Base
 
   def self.search_with_party_and_state(query)
     self.includes(:party, :state).order("members.name ASC").search(query)
+  end
+
+  def self.find_by_name(member_name)
+    self.where{(name =~ member_name) | (alternative_name =~ member_name)}.first
   end
 end

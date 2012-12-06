@@ -5,18 +5,18 @@ module Scraper
 
     BASE_URL = "http://sitl.diputados.gob.mx/LXII_leg/listados_asistenciasnplxii.php"
 
-    attr_reader :session_id, :party_id
+    attr_reader :session_number, :party_official_id
 
-    # The session_id is a autoincremented number assigned to each session in the congress
-    # Tha party_id is a number assigned to each party, currently the party ID's are: 1,2,3,4,5,6 and 12
+    # The session_number is a autoincremented number assigned to each session in the congress
+    # Tha party_official_id is a number assigned to each party, currently the party ID's are: 1,2,3,4,5,6 and 12
     #
-    def initialize(session_id, party_id)
-      @session_id = session_id
-      @party_id = party_id
+    def initialize(session_number, party_official_id)
+      @session_number = session_number
+      @party_official_id = party_official_id
     end
 
     def document
-      @document ||= Nokogiri.parse(open("#{BASE_URL}?partidot=#{party_id}&sesiont=#{session_id}"))
+      @document ||= Nokogiri.parse(open("#{BASE_URL}?partidot=#{party_official_id}&sesiont=#{session_number}"))
     end
 
     # The page with the assistances is unsuprisingly built with nested tables.

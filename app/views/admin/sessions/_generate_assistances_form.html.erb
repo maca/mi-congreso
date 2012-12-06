@@ -1,0 +1,13 @@
+<div class="panel">
+  <h3><%= t("sessions.generate_assistances") %></h3>
+
+  <div class="panel_contents">
+    <% if @session.number.present? %>
+      <%= form_tag generate_assistances_admin_session_path(@session), method: :put do %>
+        <%= submit_tag t("sessions.generate_assistances") %>
+      <% end %>
+    <% else %>
+      <p><%= t('sessions.fill_number_to_display_button') %></p>
+    <% end %>
+  </div>
+</div>
