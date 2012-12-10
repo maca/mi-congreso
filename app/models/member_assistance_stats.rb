@@ -21,6 +21,7 @@ class MemberAssistanceStats
   end
 
   def assisted_percentage
+    return 0 if total_count == 0
     @assisted_percentage ||= (assisted_count.to_f / total_count.to_f)
   end
 end
