@@ -1,5 +1,7 @@
 MiCongreso::Application.routes.draw do
 
+  match "/sections" => "sections#index"
+
   devise_for :users, controllers: { :registrations => "registrations" }
 
   ActiveAdmin.routes(self)

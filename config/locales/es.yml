@@ -15,6 +15,9 @@ es:
     mexicanos: "Porque el Congreso es de todos los mexicanos"
     about_us: "Acerca de Mi Congreso"
     register_and_participate: "Regístrate y participa!"
+    find_my_member: "Encuentra a tu diputado"
+    section_number: "Sección"
+    search: "Buscar"
 
   footer:
     about_us: "Acerca de Nosotros"
@@ -29,6 +32,8 @@ es:
     name: "Nombre"
     party: "Partido"
     state: "Estado"
+    district: "Distrito"
+    region: "Circunscripción"
     email: "Correo electrónico"
     election_type: "Tipo de elección"
     substitute: "Suplente"

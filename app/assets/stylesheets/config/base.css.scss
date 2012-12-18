@@ -25,6 +25,16 @@ a:focus { color: $mainColor; outline: none; }
   }
 }
 
+.button-third {
+  border-color: darken($darkBackColor, 30%);
+  @include background(linear-gradient($darkBackColor, darken($darkBackColor, 30%)));
+  @include border-radius($radius);
+
+  &:hover {
+    @include background(linear-gradient(lighten($darkBackColor, 10%), darken($darkBackColor, 20%)));
+  }
+}
+
 .sort.button {
   color: $mainColor;
   border-color: darken($lightBackColor, 10%);

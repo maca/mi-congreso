@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217061022) do
+ActiveRecord::Schema.define(:version => 20121218064453) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -119,9 +119,13 @@ ActiveRecord::Schema.define(:version => 20121217061022) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "alternative_name"
+    t.integer  "district_id"
+    t.integer  "region_id"
   end
 
+  add_index "members", ["district_id"], :name => "index_members_on_district_id"
   add_index "members", ["party_id"], :name => "index_members_on_party_id"
+  add_index "members", ["region_id"], :name => "index_members_on_region_id"
   add_index "members", ["state_id"], :name => "index_members_on_state_id"
 
   create_table "parties", :force => true do |t|
@@ -188,10 +192,12 @@ ActiveRecord::Schema.define(:version => 20121217061022) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.boolean  "receive_notifications"
+    t.integer  "section_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["section_id"], :name => "index_users_on_section_id"
 
   create_table "votes", :force => true do |t|
     t.integer  "value",         :limit => 2

@@ -16,3 +16,9 @@
     @include text-shadow($shadowInDark 1px 1px 3px);
   }
 }
+
+#find-member {
+  select {
+    margin-bottom: 13px;
+  }
+}

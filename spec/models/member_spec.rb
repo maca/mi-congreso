@@ -26,6 +26,21 @@ describe Member do
     end
   end
 
+  describe "#find_by_section" do
+    let!(:state) { FactoryGirl.create(:state, name: "Sonora") }
+    let!(:district) { FactoryGirl.create(:district, number: 1, state_id: state.id) }
+    let!(:section) { FactoryGirl.create(:section, number: 1, district_id: district.id) }
+    let!(:member) { FactoryGirl.create(:member, district_id: district.id) }
+
+    it "finds the member by the section number" do
+      Member.find_by_section(1, state.id).should eq member
+    end
+
+    it "returns nil when the section is not found" do
+      Member.find_by_section(1, 101).should be_nil
+    end
+  end
+
   describe "#all_initiatives" do
     it "returns the initiatives where the member is the main sponsor" do
       member.should_receive(:initiatives) { [initiative] }

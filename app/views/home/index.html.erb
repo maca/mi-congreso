@@ -5,6 +5,28 @@
   <br/>
 
   <%= link_to t("home.register_and_participate"), new_user_registration_path, class: "button large" %>
+
+  <%= link_to t("home.find_my_member"), "#", id: "find-member-button", class: "button button-third large" %>
+
+  <div id="find-member" class="reveal-modal medium">
+    <div class="twelve">
+      <div class="six columns">
+        <%= image_tag("ife.png") %>
+      </div>
+      <div class="six columns">
+        <h4><%= t("home.find_my_member") %></h4>
+        <%= form_tag sections_path, method: :get do %>
+          <%= label_tag :state_id, t("members.state") %>
+          <%= select_tag :state_id, options_from_collection_for_select(State.all, :id, :name) %>
+          <%= label_tag :section_number, t("home.section_number") %>
+          <%= text_field_tag :section_number %>
+          <%= submit_tag t("home.search"), class: "button small" %>
+        <% end %>
+      </div>
+    </div>
+
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 </div>
 <% end %>
 

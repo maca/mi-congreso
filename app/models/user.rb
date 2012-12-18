@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
 
   has_many :user_interests, dependent: :destroy
   has_many :subjects, through: :user_interests
+  belongs_to :section
 
   validates :name, presence: true
 
+  delegate :district, :to => :section, :allow_nil => true
+  delegate :member, :to => :district, :allow_nil => true
 end

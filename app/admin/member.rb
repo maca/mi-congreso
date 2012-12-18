@@ -10,6 +10,8 @@ ActiveAdmin.register Member do
   filter :party
   filter :state
   filter :name
+  filter :district
+  filter :region
 
   form do |f|
     f.inputs "Member" do
@@ -20,6 +22,8 @@ ActiveAdmin.register Member do
       f.input :party_id, as: :select, collection: Party.all
       f.input :state_id, as: :select, collection: State.all
       f.input :election_type, as: :select, collection: [[I18n.t("election_type.relativa"), "relativa"], [I18n.t("election_type.proporcional"), "proporcional"]]
+      f.input :district_id, as: :select, collection: f.object.try(:state) ? f.object.state.districts : District.all
+      f.input :region_id, as: :select, collection: Region.all
       f.input :birthplace
       f.input :birthdate, as: :date_select, start_year: 1900
       f.input :substitute

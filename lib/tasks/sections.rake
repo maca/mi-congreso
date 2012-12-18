@@ -6,7 +6,10 @@ namespace :sections do
   task :import_regions => :environment do
     regions_json = JSON.parse(File.read(Rails.root.to_s + "/db/seeds/regions.json"))
     regions_json.each do |region_hash|
-      Region.create(region_hash)
+      id = region_hash.delete("id")
+      region = Region.new(region_hash)
+      region.id = id
+      region.save
     end
   end
 
@@ -31,10 +34,13 @@ namespace :sections do
     districts_json = JSON.parse(File.read(Rails.root.to_s + "/db/seeds/districts.json"))
     districts_json.each do |district_hash|
       state_id = district_hash.delete("state_id")
+      district_id = district_hash.delete("id")
+      head = district_hash.delete("head")
       district = District.new(district_hash)
       state_hash = states_json.find {|h| h["id"] == state_id}
       state = State.find_by_name(state_hash["name"])
       district.state_id = state.id
+      district.id = district_id
       district.save
     end
   end
@@ -43,7 +49,18 @@ namespace :sections do
   task :import_sections => :environment do
     sections_json = JSON.parse(File.read(Rails.root.to_s + "/db/seeds/sections.json"))
     sections_json.each do |section_hash|
-      Section.create(section_hash)
+      section_id = section_hash.delete("id")
+      section = Section.new(section_hash)
+      section.id = section_id
+      section.save
     end
+  end
+
+  desc "Import everything"
+  task :import => :environment do
+    Rake::Task["sections:import_regions"].invoke
+    Rake::Task["sections:import_region_ids"].invoke
+    Rake::Task["sections:import_districts"].invoke
+    Rake::Task["sections:import_sections"].invoke
   end
 end
