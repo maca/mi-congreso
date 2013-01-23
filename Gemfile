@@ -29,6 +29,7 @@ gem 'turbolinks'
 gem 'squeel'
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 gem 'redcarpet'
+gem 'honeybadger'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
@@ -38,6 +39,7 @@ group :development do
   gem 'rb-fsevent', '~> 0.9.1', require: false
   gem 'zeus'
   gem "letter_opener"
+  gem 'heroku'
 end
 
 group :development, :test do
