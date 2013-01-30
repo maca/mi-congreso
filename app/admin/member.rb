@@ -29,6 +29,7 @@ ActiveAdmin.register Member do
       f.input :substitute
       f.input :facebook
       f.input :twitter
+      f.input :twitter_widget_id
       f.input :photo
       f.input :education
       f.input :political_experience

@@ -19,11 +19,21 @@
 
     <hr/>
 
-    <div class="label secondary radius"><%= t("members.assistances") %></div>
-    <h4>
-      <%= number_to_percentage(@member.assistance_stats.assisted_percentage * 100) %>
-      <%= t("members.assistances_counts", assisted: @member.assistance_stats.assisted_count, total: @member.assistance_stats.total_count) %>
-    </h4>
+    <div class="row">
+      <div class="six columns">
+        <div class="label secondary radius"><%= t("members.assistances") %></div>
+        <h4>
+          <%= number_to_percentage(@member.assistance_stats.assisted_percentage * 100) %>
+          <%= t("members.assistances_counts", assisted: @member.assistance_stats.assisted_count, total: @member.assistance_stats.total_count) %>
+        </h4>
+      </div>
+
+      <div class="six columns">
+        <% if @member.twitter.present? && @member.twitter_widget_id.present? %>
+          <%= twitter_timeline(@member.twitter, @member.twitter_widget_id) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="three columns">

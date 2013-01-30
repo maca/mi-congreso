@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   attr_accessible :birthdate, :birthplace, :comission, :education, :election_type, :email, :name, :alternative_name
   attr_accessible :party_id, :political_experience, :private_experience, :state_id, :substitute, :photo
-  attr_accessible :twitter, :facebook
+  attr_accessible :twitter, :twitter_widget_id, :facebook
 
   belongs_to :state
   belongs_to :party

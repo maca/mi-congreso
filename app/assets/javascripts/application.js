@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require turbolinks-analytics
 //= require foundation/modernizr.foundation
 //= require foundation/jquery.placeholder
 //= require foundation/jquery.foundation.reveal

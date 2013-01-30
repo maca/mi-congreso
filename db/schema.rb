@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218064453) do
+ActiveRecord::Schema.define(:version => 20130130063413) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20121218064453) do
     t.string   "alternative_name"
     t.integer  "district_id"
     t.integer  "region_id"
+    t.string   "twitter_widget_id"
   end
 
   add_index "members", ["district_id"], :name => "index_members_on_district_id"

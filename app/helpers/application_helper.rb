@@ -20,4 +20,12 @@ module ApplicationHelper
       content_tag(:div, t(params[:message], default: params[:message]), class: "alert-box margin-top")
     end
   end
+
+  def twitter_timeline(username, widget_id)
+    html = <<-HTML
+      <a class="twitter-timeline" data-dnt=true href="https://twitter.com/#{h(username)}" data-widget-id="#{widget_id}">Tweets by @#{h(username)}</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    HTML
+    html.html_safe
+  end
 end

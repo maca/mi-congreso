@@ -25,7 +25,6 @@ gem "kaminari"
 gem "nokogiri"
 gem "paperclip"
 gem 'aws-sdk', '~> 1.3.4'
-gem 'turbolinks'
 gem 'squeel'
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 gem 'redcarpet'

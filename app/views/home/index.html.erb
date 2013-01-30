@@ -32,17 +32,29 @@
 
 <div class="row">
   <div class="twelve columns content">
+    <div class="row">
+      <div class="twelve columns">
+        <h4 class="section-header"><%= t('home.latest_initiatives') %></h4>
 
-    <h4 class="section-header"><%= t('home.latest_initiatives') %></h4>
-
-    <div class="initiatives">
-      <%= render partial: "home/initiative", collection: @initiatives %>
+        <div class="initiatives">
+          <%= render partial: "home/initiative", collection: @initiatives %>
+        </div>
+      </div>
     </div>
 
-    <h4 class="section-header"><%= t('home.about_us') %></h4>
+    <div class="row">
+      <div class="eight columns">
+        <h4 class="section-header"><%= t('home.about_us') %></h4>
 
-    <h4 class="subheader"><%= t('home.mi_congreso_pitch') %></h4>
-    <h4 class="center"><%= t('home.explore') %></h4>
-    <h4 class="center"><%= t('home.mexicanos') %></h4>
+        <h4 class="subheader"><%= t('home.mi_congreso_pitch') %></h4>
+        <h4 class="center"><%= t('home.explore') %></h4>
+        <h4 class="center"><%= t('home.mexicanos') %></h4>
+      </div>
+
+      <div class="four columns">
+        <%= twitter_timeline("micongreso", "296494828806619136") %>
+      </div>
+    </div>
+
   </div>
 </div>
