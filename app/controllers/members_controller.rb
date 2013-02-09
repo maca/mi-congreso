@@ -6,6 +6,12 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @initiatives = @member.all_initiatives
+    @sponsored_initiatives = @member.all_initiatives
+    @voted_initiatives = Initiative.voted.latest(3)
+  end
+
+  def votes
+    @member = Member.find(params[:id])
+    @voted_initiatives = Initiative.voted.latest(50)
   end
 end

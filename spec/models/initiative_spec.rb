@@ -131,6 +131,16 @@ describe Initiative do
         initiative.vote_for(user).should eq vote
       end
     end
+
+    context "member voted" do
+      let(:member) { FactoryGirl.create(:member) }
+
+      it "returns the vote for the member" do
+        vote = initiative.votes.create(voter: member, value: :for, session_id: 1)
+        initiative.vote_for(member).should eq vote
+      end
+
+    end
   end
 
   describe "#total_user_votes_count" do

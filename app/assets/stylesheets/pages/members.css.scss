@@ -54,3 +54,41 @@
 span.proposer-small {
   display: inline-block;
 }
+
+.voted-initiatives {
+  .button {
+    float: right;
+    margin-top: 14px;
+  }
+}
+
+.voted-initiative {
+  background: $lightBackColor;
+  overflow: hidden;
+  margin-bottom: 2px;
+
+  .align-right {
+    padding-top: 14px;
+  }
+}
+
+.vote-label {
+  padding: 6px 9px;
+  color: $white;
+  @include box-shadow(1px 1px 1px $darkEdge inset);
+}
+
+.vote-label-for {
+  background: $forColor;
+  border: 1px solid darken(($forColor), 15%);
+}
+
+.vote-against-for {
+  background: $againstColor;
+  border: 1px solid darken(($againstColor), 15%);
+}
+
+.vote-neutral-for {
+  background: $neutralColor;
+  border: 1px solid darken(($neutralColor), 15%);
+}

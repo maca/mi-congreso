@@ -36,7 +36,6 @@ group :development do
   gem 'guard-rspec', git: "https://github.com/guard/guard-rspec.git"
   gem 'guard-cucumber'
   gem 'rb-fsevent', '~> 0.9.1', require: false
-  gem 'zeus'
   gem "letter_opener"
   gem 'heroku'
 end

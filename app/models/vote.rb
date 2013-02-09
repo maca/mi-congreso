@@ -14,6 +14,6 @@ class Vote < ActiveRecord::Base
   end
 
   def value_object
-    VoteValue.new(self.value)
+    @value_object ||= VoteValue.new(self.value)
   end
 end

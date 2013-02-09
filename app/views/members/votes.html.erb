@@ -1,0 +1,25 @@
+<% title @member.name %>
+
+<div class="row">
+  <div class="nine columns">
+    <h2 class="member-name <%= party_abbr(@member) %>"><%= link_to @member.name, @member %></h2>
+
+    <h4 class="subtitle"><%= @member.state_name %></h4>
+
+    <hr/>
+
+    <div class="row">
+      <div class="twelve columns voted-initiatives">
+        <h4><%= t('members.voted_initiatives') %></h4>
+
+        <%= render partial: "voted_initiative", collection: @voted_initiatives %>
+      </div>
+    </div>
+
+    <hr/>
+  </div>
+
+  <div class="three columns">
+    <%= render "sidebar" %>
+  </div>
+</div>

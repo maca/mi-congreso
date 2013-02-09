@@ -41,6 +41,8 @@ es:
     members: "Diputados"
     no_initiatives_sponsored: "%{name} aún no ha presentado ninguna iniciativa."
     sponsored_initiatives: "Inciativas presentadas"
+    voted_initiatives: "Voto en iniciativas anteriores"
+    see_all_votes: "Ver todos los votos"
     assistances: "Asistencias a sesiones"
     assistances_counts: "(%{assisted} de %{total})"
 
@@ -89,6 +91,7 @@ es:
     fill_votes_url_to_display_form: "Llena el campo con la URL para extraer los votos."
     for: "Favor"
     against: "Contra"
+    neutral: "Abstención"
     register: "Te invitamos a registrarte para poder votar"
 
   election_type:

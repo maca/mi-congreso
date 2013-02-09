@@ -17,6 +17,7 @@ class Initiative < ActiveRecord::Base
 
   scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
   scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
+  scope :voted, -> { where("votes_url IS NOT NULL") }
 
   def self.search_with_options(query={}, options={})
     options[:order] ||= "created_at_desc"
@@ -78,8 +79,12 @@ class Initiative < ActiveRecord::Base
     self.votes.create(voter: user, value: VoteValue.to_i(vote_value))
   end
 
-  def vote_for(user)
-    self.user_votes.where(voter_id: user.id).first
+  def vote_for(person)
+    if person.is_a?(User)
+      self.user_votes.where(voter_id: person.id).first
+    elsif person.is_a?(Member)
+      self.member_votes.where(voter_id: person.id).first
+    end
   end
 
   def total_user_votes_count

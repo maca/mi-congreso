@@ -10,11 +10,23 @@
 
     <div class="initiatives">
       <h4><%= t('members.sponsored_initiatives') %></h4>
-      <% if @initiatives.present? %>
-        <%= render partial: "initiative", collection: @initiatives %>
+      <% if @sponsored_initiatives.present? %>
+        <%= render partial: "initiative", collection: @sponsored_initiatives %>
       <% else %>
         <h6><%= t('members.no_initiatives_sponsored', name: @member.name) %></h6>
       <% end %>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="twelve columns voted-initiatives">
+        <h4><%= t('members.voted_initiatives') %></h4>
+
+        <%= render partial: "voted_initiative", collection: @voted_initiatives %>
+
+        <%= link_to t("members.see_all_votes"), votes_member_path(@member), class: "button small" %>
+      </div>
     </div>
 
     <hr/>
@@ -37,29 +49,6 @@
   </div>
 
   <div class="three columns">
-    <div class="sidebar">
-      <div class="panel avatar">
-        <%= image_tag @member.photo.url %>
-      </div>
-
-      <span class="label radius"><%= t('members.email') %></span>
-      <p><%= link_to truncate(@member.email, length: 27), "mailto:#{@member.email}" %></p>
-
-      <% if @member.twitter.present? %>
-      <span class="label radius"><%= t('members.twitter') %></span>
-      <p><%= link_to_twitter_username @member.twitter %></p>
-      <% end %>
-
-      <span class="label radius"><%= t('members.election_type') %></span>
-      <p><%= t("election_type.#{@member.election_type}") %></p>
-
-      <span class="label radius"><%= t('members.substitute') %></span>
-      <p><%= @member.substitute %></p>
-
-      <% if @member.birthdate.present? %>
-      <span class="label radius"><%= t('members.age') %></span>
-      <p><%= @member.age %></p>
-      <% end %>
-    </div>
+    <%= render "sidebar" %>
   </div>
 </div>

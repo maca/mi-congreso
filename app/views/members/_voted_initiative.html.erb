@@ -1,0 +1,13 @@
+<div class="voted-initiative">
+  <div class="ten columns">
+    <h6 class="small-title"><%= link_to voted_initiative.title, voted_initiative %></h4>
+  </div>
+
+  <div class="two columns align-right">
+    <% vote = voted_initiative.vote_for(@member) %>
+
+    <% if vote %>
+      <span class="vote-label vote-label-<%= vote.value_object %>"><%= t("votes.#{vote.value_object}") %></span>
+    <% end %>
+  </div>
+</div>

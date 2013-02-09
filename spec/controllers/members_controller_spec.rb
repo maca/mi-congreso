@@ -26,6 +26,7 @@ describe MembersController do
   describe "GET show" do
     before(:each) do
       Member.stub(:find) { member }
+      Initiative.stub_chain(:voted, :latest) { [initiative] }
     end
 
     it "finds the member by id" do
@@ -34,10 +35,16 @@ describe MembersController do
       assigns(:member).should eq member
     end
 
-    it "assigns the initiatives presented by the member" do
+    it "assigns the sponsored initiatives by the member" do
       member.should_receive(:all_initiatives) { [initiative] }
       get :show, id: 1
-      assigns(:initiatives).should eq [initiative]
+      assigns(:sponsored_initiatives).should eq [initiative]
+    end
+
+    it "assigns the voted initiatives by the member" do
+      Initiative.should_receive(:voted)
+      get :show, id: 1
+      assigns(:voted_initiatives).should eq [initiative]
     end
   end
 end
