@@ -13,11 +13,12 @@ class Initiative < ActiveRecord::Base
   validates_presence_of :title, :description, :presented_at
 
   before_save :calculate_sponsors_count
+  after_save :populate_voted_field
   after_save :calculate_initiatives_count_for_subjects
 
   scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
   scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
-  scope :voted, -> { where("votes_url IS NOT NULL") }
+  scope :with_votes, -> { where(voted: true) }
 
   def self.search_with_options(query={}, options={})
     options[:order] ||= "created_at_desc"
@@ -65,6 +66,11 @@ class Initiative < ActiveRecord::Base
 
   def has_been_voted?
     self.member_votes.count > 0
+  end
+
+  def populate_voted_field
+    voted_value = self.has_been_voted?
+    self.update_column(:voted, voted_value) if voted_value && voted_value != self.voted
   end
 
   def percentage_votes(vote_type)
