@@ -93,6 +93,7 @@ es:
     against: "Contra"
     neutral: "Neutral"
     absent: "Abstención"
+    quorum: "Quorum"
     register: "Te invitamos a registrarte para poder votar"
 
   election_type:

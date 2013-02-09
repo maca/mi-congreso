@@ -88,7 +88,7 @@ span.proposer-small {
   border: 1px solid darken(($againstColor), 15%);
 }
 
-.vote-label-neutral, .vote-label-absent {
+.vote-label-neutral, .vote-label-absent, .vote-label-quorum {
   background: $neutralColor;
   border: 1px solid darken(($neutralColor), 15%);
 }
