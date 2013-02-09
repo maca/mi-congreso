@@ -91,7 +91,8 @@ es:
     fill_votes_url_to_display_form: "Llena el campo con la URL para extraer los votos."
     for: "Favor"
     against: "Contra"
-    neutral: "Abstención"
+    neutral: "Neutral"
+    absent: "Abstención"
     register: "Te invitamos a registrarte para poder votar"
 
   election_type:

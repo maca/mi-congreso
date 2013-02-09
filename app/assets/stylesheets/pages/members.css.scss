@@ -83,12 +83,12 @@ span.proposer-small {
   border: 1px solid darken(($forColor), 15%);
 }
 
-.vote-against-for {
+.vote-label-against {
   background: $againstColor;
   border: 1px solid darken(($againstColor), 15%);
 }
 
-.vote-neutral-for {
+.vote-label-neutral, .vote-label-absent {
   background: $neutralColor;
   border: 1px solid darken(($neutralColor), 15%);
 }
