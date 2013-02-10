@@ -43,6 +43,7 @@ es:
     sponsored_initiatives: "Inciativas presentadas"
     voted_initiatives: "Voto en iniciativas anteriores"
     see_all_votes: "Ver todos los votos"
+    back_to_profile: "< Regresar al perfil del diputado"
     assistances: "Asistencias a sesiones"
     assistances_counts: "(%{assisted} de %{total})"
 

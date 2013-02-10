@@ -10,6 +10,10 @@
 
     <div class="row">
       <div class="twelve columns voted-initiatives">
+        <%= link_to t("members.back_to_profile"), @member, class: "button small" %>
+
+        <hr/>
+
         <h4><%= t('members.voted_initiatives') %></h4>
 
         <%= render partial: "voted_initiative", collection: @voted_initiatives %>
