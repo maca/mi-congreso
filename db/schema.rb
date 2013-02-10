@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209084940) do
+ActiveRecord::Schema.define(:version => 20130210032331) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130209084940) do
     t.integer  "sponsors_count",        :default => 0
     t.string   "votes_url"
     t.boolean  "voted",                 :default => false
+    t.integer  "gazette_id"
   end
 
   add_index "initiatives", ["member_id"], :name => "index_initiatives_on_member_id"

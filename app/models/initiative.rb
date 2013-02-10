@@ -1,5 +1,7 @@
 class Initiative < ActiveRecord::Base
-  attr_accessible :title, :description, :original_document_url, :presented_at, :member_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor, :votes_url
+  attr_accessible :title, :description, :original_document_url, :presented_at
+  attr_accessible :member_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor
+  attr_accessible :votes_url, :gazette_id
 
   paginates_per 10
 

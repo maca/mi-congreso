@@ -1,6 +1,7 @@
 ActiveAdmin.register Initiative do
 
   index do
+    column :gazette_id
     column :title
     column :subjects do |initiative|
       initiative.subjects.map(&:name).join(', ')
@@ -11,11 +12,13 @@ ActiveAdmin.register Initiative do
     default_actions
   end
 
+  filter :gazette_id
   filter :title
   filter :presented_at
 
   form do |f|
     f.inputs "Iniciativa" do
+      f.input :gazette_id
       f.input :title
       f.input :description
       f.input :subjects
@@ -32,6 +35,7 @@ ActiveAdmin.register Initiative do
 
   show do |initiative|
     attributes_table do
+      row :gazette_id
       row :title
       row :description
       row :subjects

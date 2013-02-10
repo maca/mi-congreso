@@ -93,7 +93,7 @@ es:
     for: "Favor"
     against: "Contra"
     neutral: "Neutral"
-    absent: "Abstención"
+    absent: "Ausente"
     quorum: "Quorum"
     register: "Te invitamos a registrarte para poder votar"
 
@@ -121,6 +121,7 @@ es:
         value: "Valor"
 
       initiative:
+        gazette_id: "ID Gaceta"
         title: "Título"
         member: "Diputado"
         member_id: "Presentada por"

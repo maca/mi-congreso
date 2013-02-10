@@ -40,7 +40,7 @@ module Scraper
     attr_reader :name, :value
 
     def initialize(name, value)
-      @name = name
+      @name = name.to_s.split(/\s/).delete_if(&:blank?).join(" ")
       @value = value.strip.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.to_s
     end
   end
