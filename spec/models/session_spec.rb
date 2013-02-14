@@ -4,14 +4,14 @@ describe Session do
 
   describe "generate_assistances!" do
     let(:session) { FactoryGirl.create(:session, number: 1) }
-    let(:member) { mock_model(Member) }
-    let(:member_assistance) { mock(:member_assistance, name: "Pancho Lopez", value: "asistencia") }
-    let(:scraper) { mock(:assistance, members: [member_assistance]) }
+    let(:deputy) { mock_model(Deputy) }
+    let(:deputy_assistance) { mock(:deputy_assistance, name: "Pancho Lopez", value: "asistencia") }
+    let(:scraper) { mock(:assistance, deputies: [deputy_assistance]) }
 
     before(:each) do
       Scraper::Assistances.stub(:new) { scraper }
       Party.stub(:official_ids) { [2] }
-      Member.stub(:find_by_name) { member}
+      Deputy.stub(:find_by_name) { deputy}
     end
 
     it "initializes a assistance scraper for every party" do
@@ -20,7 +20,7 @@ describe Session do
     end
 
     it "creates a new assistance" do
-      Assistance.should_receive(:create_from_scraper).with(session, member_assistance)
+      Assistance.should_receive(:create_from_scraper).with(session, deputy_assistance)
       session.generate_assistances!
     end
   end

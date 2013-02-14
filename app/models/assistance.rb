@@ -1,17 +1,17 @@
 class Assistance < ActiveRecord::Base
-  attr_accessible :member_id, :session_id, :value
+  attr_accessible :deputy_id, :session_id, :value
 
-  belongs_to :member
+  belongs_to :deputy
   belongs_to :session
 
-  validates :member_id, :session_id, :value, presence: true
-  validates_uniqueness_of :member_id, scope: :session_id
+  validates :deputy_id, :session_id, :value, presence: true
+  validates_uniqueness_of :deputy_id, scope: :session_id
 
-  def self.create_from_scraper(session, member_assistance)
-    member = Member.find_by_name(member_assistance.name)
+  def self.create_from_scraper(session, deputy_assistance)
+    deputy = Deputy.find_by_name(deputy_assistance.name)
 
-    if member
-      self.create(member_id: member.id, session_id: session.id, value: AssistanceValue.to_i(member_assistance.value))
+    if deputy
+      self.create(deputy_id: deputy.id, session_id: session.id, value: AssistanceValue.to_i(deputy_assistance.value))
     end
   end
 end

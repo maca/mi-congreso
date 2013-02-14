@@ -6,7 +6,7 @@ ActiveAdmin.register Initiative do
     column :subjects do |initiative|
       initiative.subjects.map(&:name).join(', ')
     end
-    column :member
+    column :deputy
     column :summary_by
     column :presented_at
     default_actions
@@ -24,7 +24,7 @@ ActiveAdmin.register Initiative do
       f.input :subjects
       f.input :original_document_url
       f.input :presented_at, as: :date_select
-      f.input :member_id, as: :select, collection: Member.order(:name)
+      f.input :deputy_id, as: :select, collection: Deputy.order(:name)
       f.input :sponsors
       f.input :other_sponsor
       f.input :summary_by
@@ -39,7 +39,7 @@ ActiveAdmin.register Initiative do
       row :title
       row :description
       row :subjects
-      row :member
+      row :deputy
       row :presented_at
       row :summary_by
       row :views_count
@@ -57,9 +57,9 @@ ActiveAdmin.register Initiative do
     session = Session.find(params[:session_id])
 
     if initiative && session
-      votes_created, members_not_found = initiative.generate_votes!(session)
-      if members_not_found.any?
-        flash_message = {alert: I18n.t("initiatives.members_not_found", not_found: members_not_found.join(", "), votes_created: votes_created)}
+      votes_created, deputies_not_found = initiative.generate_votes!(session)
+      if deputies_not_found.any?
+        flash_message = {alert: I18n.t("initiatives.deputies_not_found", not_found: deputies_not_found.join(", "), votes_created: votes_created)}
       else
         flash_message = {notice: I18n.t("initiatives.votes_generated", votes_created: votes_created)}
       end

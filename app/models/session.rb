@@ -11,8 +11,8 @@ class Session < ActiveRecord::Base
   def generate_assistances!
     Party.official_ids.each do |official_id|
       scraper = Scraper::Assistances.new(self.number, official_id)
-      scraper.members.each do |member_assistance|
-        Assistance.create_from_scraper(self, member_assistance)
+      scraper.deputies.each do |deputy_assistance|
+        Assistance.create_from_scraper(self, deputy_assistance)
       end
     end
   end

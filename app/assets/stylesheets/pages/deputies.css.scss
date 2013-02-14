@@ -6,13 +6,13 @@
 .pt     { @include parties-sprite(pt_color); }
 .pvem   { @include parties-sprite(pvem_color); }
 
-.members {
+.deputies {
 
   table a {
     text-decoration: underline;
   }
 
-  h2.member-name {
+  h2.deputy-name {
     font-size: 32px;
     padding-left: 70px;
     height: 57px;

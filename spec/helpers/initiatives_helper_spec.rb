@@ -42,21 +42,21 @@ describe InitiativesHelper do
   end
 
   describe "#link_to_sponsors" do
-    let(:member) { mock_model(Member, id: 1, name: "Andres") }
+    let(:deputy) { mock_model(Deputy, id: 1, name: "Andres") }
 
     before(:each) do
       initiative.stub(:sponsors_count) { 0 }
-      initiative.stub(:member) { member }
+      initiative.stub(:deputy) { deputy }
     end
 
-    it "generates a link to the member profile" do
-      helper.should_receive(:link_to).with("Andres", member)
+    it "generates a link to the deputy profile" do
+      helper.should_receive(:link_to).with("Andres", deputy)
       helper.link_to_sponsors(initiative)
     end
 
     it "generates a link with the sponsors_count" do
       initiative.stub(:sponsors_count) { 2 }
-      helper.should_receive(:link_to).with("Andres y 2 más", member)
+      helper.should_receive(:link_to).with("Andres y 2 más", deputy)
       helper.link_to_sponsors(initiative)
     end
   end

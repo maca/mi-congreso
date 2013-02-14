@@ -9,24 +9,24 @@ module Scraper
       @document ||= Nokogiri.parse(open(BASE_URL))
     end
 
-    def members_nodes
+    def deputies_nodes
       nodes = document.css("table tr:nth-child(4) table tr")
       nodes = nodes.map {|n| n if n.css("td[class=textoNegro]").size > 0 }.compact
     end
 
-    def members
-      members_nodes.map do |node|
+    def deputies
+      deputies_nodes.map do |node|
         internal_nodes = node.css("td[class=textoNegro]")
         name = internal_nodes[0].text
         state_name = internal_nodes[1].text
         district_or_region = internal_nodes[2].text
 
-        MemberDistrict.new(name, state_name, district_or_region)
+        DeputyDistrict.new(name, state_name, district_or_region)
       end
     end
   end
 
-  class MemberDistrict
+  class DeputyDistrict
 
     attr_reader :name, :state_name, :district_or_region
 

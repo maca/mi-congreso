@@ -21,21 +21,21 @@ module Scraper
 
     # The page with the assistances is unsuprisingly built with nested tables.
     #
-    def member_nodes
+    def deputy_nodes
       nodes = document.css("table tr:nth-child(4) table tr")
       nodes = nodes[4..-1]
     end
 
-    def members
-      member_nodes.map do |node|
+    def deputies
+      deputy_nodes.map do |node|
         name = node.css("td:nth-child(2)").text
         value = node.css("td:nth-child(3)").text
-        MemberAssistance.new(name, value)
+        DeputyAssistance.new(name, value)
       end
     end
   end
 
-  class MemberAssistance
+  class DeputyAssistance
 
     attr_reader :name, :value
 

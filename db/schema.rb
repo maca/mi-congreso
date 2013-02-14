@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210032331) do
+ActiveRecord::Schema.define(:version => 20130214080649) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -47,59 +47,35 @@ ActiveRecord::Schema.define(:version => 20130210032331) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "assistances", :force => true do |t|
-    t.integer  "member_id"
+    t.integer  "deputy_id"
     t.integer  "session_id"
     t.integer  "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "assistances", ["member_id"], :name => "index_assistances_on_member_id"
+  add_index "assistances", ["deputy_id"], :name => "index_assistances_on_deputy_id"
   add_index "assistances", ["session_id"], :name => "index_assistances_on_session_id"
 
-  create_table "districts", :force => true do |t|
-    t.integer "number",   :null => false
-    t.integer "state_id", :null => false
+  create_table "commission_memberships", :force => true do |t|
+    t.string   "position"
+    t.integer  "commission_id"
+    t.integer  "deputy_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "districts", ["state_id"], :name => "index_districts_on_state_id"
+  add_index "commission_memberships", ["commission_id"], :name => "index_commission_memberships_on_commission_id"
+  add_index "commission_memberships", ["deputy_id"], :name => "index_commission_memberships_on_deputy_id"
 
-  create_table "initiatives", :force => true do |t|
-    t.string   "title"
-    t.integer  "member_id"
-    t.text     "description"
-    t.string   "summary_by"
-    t.string   "original_document_url"
-    t.datetime "presented_at"
-    t.integer  "views_count",           :default => 0
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.string   "other_sponsor"
-    t.integer  "sponsors_count",        :default => 0
-    t.string   "votes_url"
-    t.boolean  "voted",                 :default => false
-    t.integer  "gazette_id"
+  create_table "commissions", :force => true do |t|
+    t.string   "name"
+    t.string   "chamber"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "initiatives", ["member_id"], :name => "index_initiatives_on_member_id"
-
-  create_table "initiatives_members", :id => false, :force => true do |t|
-    t.integer "initiative_id"
-    t.integer "member_id"
-  end
-
-  add_index "initiatives_members", ["initiative_id"], :name => "index_initiatives_members_on_initiative_id"
-  add_index "initiatives_members", ["member_id"], :name => "index_initiatives_members_on_member_id"
-
-  create_table "initiatives_subjects", :id => false, :force => true do |t|
-    t.integer "initiative_id"
-    t.integer "subject_id"
-  end
-
-  add_index "initiatives_subjects", ["initiative_id"], :name => "index_initiatives_subjects_on_initiative_id"
-  add_index "initiatives_subjects", ["subject_id"], :name => "index_initiatives_subjects_on_subject_id"
-
-  create_table "members", :force => true do |t|
+  create_table "deputies", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.integer  "party_id"
@@ -126,10 +102,52 @@ ActiveRecord::Schema.define(:version => 20130210032331) do
     t.string   "twitter_widget_id"
   end
 
-  add_index "members", ["district_id"], :name => "index_members_on_district_id"
-  add_index "members", ["party_id"], :name => "index_members_on_party_id"
-  add_index "members", ["region_id"], :name => "index_members_on_region_id"
-  add_index "members", ["state_id"], :name => "index_members_on_state_id"
+  add_index "deputies", ["district_id"], :name => "index_deputies_on_district_id"
+  add_index "deputies", ["party_id"], :name => "index_deputies_on_party_id"
+  add_index "deputies", ["region_id"], :name => "index_deputies_on_region_id"
+  add_index "deputies", ["state_id"], :name => "index_deputies_on_state_id"
+
+  create_table "deputies_initiatives", :id => false, :force => true do |t|
+    t.integer "initiative_id"
+    t.integer "deputy_id"
+  end
+
+  add_index "deputies_initiatives", ["deputy_id"], :name => "index_deputies_initiatives_on_deputy_id"
+  add_index "deputies_initiatives", ["initiative_id"], :name => "index_deputies_initiatives_on_initiative_id"
+
+  create_table "districts", :force => true do |t|
+    t.integer "number",   :null => false
+    t.integer "state_id", :null => false
+  end
+
+  add_index "districts", ["state_id"], :name => "index_districts_on_state_id"
+
+  create_table "initiatives", :force => true do |t|
+    t.string   "title"
+    t.integer  "deputy_id"
+    t.text     "description"
+    t.string   "summary_by"
+    t.string   "original_document_url"
+    t.datetime "presented_at"
+    t.integer  "views_count",           :default => 0
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "other_sponsor"
+    t.integer  "sponsors_count",        :default => 0
+    t.string   "votes_url"
+    t.boolean  "voted",                 :default => false
+    t.integer  "gazette_id"
+  end
+
+  add_index "initiatives", ["deputy_id"], :name => "index_initiatives_on_deputy_id"
+
+  create_table "initiatives_subjects", :id => false, :force => true do |t|
+    t.integer "initiative_id"
+    t.integer "subject_id"
+  end
+
+  add_index "initiatives_subjects", ["initiative_id"], :name => "index_initiatives_subjects_on_initiative_id"
+  add_index "initiatives_subjects", ["subject_id"], :name => "index_initiatives_subjects_on_subject_id"
 
   create_table "parties", :force => true do |t|
     t.string   "name"

@@ -1,4 +1,4 @@
-ActiveAdmin.register Member do
+ActiveAdmin.register Deputy do
   index do
     column :name
     column :email
@@ -14,7 +14,7 @@ ActiveAdmin.register Member do
   filter :region
 
   form do |f|
-    f.inputs "Member" do
+    f.inputs "Deputy" do
       f.input :name
       f.input :alternative_name
       f.input :email

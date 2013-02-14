@@ -67,7 +67,7 @@ describe Initiative do
 
   describe "#calculate_sponsors_count" do
     it "should calculate the sponsors count" do
-      initiative.sponsors << FactoryGirl.create(:member)
+      initiative.sponsors << FactoryGirl.create(:deputy)
       initiative.calculate_sponsors_count
       initiative.sponsors_count.should eq 1
     end
@@ -82,7 +82,7 @@ describe Initiative do
   end
 
   describe "#has_been_voted?" do
-    context "initiative has member_votes" do
+    context "initiative has deputy_votes" do
       before { FactoryGirl.create(:vote, initiative: initiative) }
 
       it "returns true" do
@@ -90,7 +90,7 @@ describe Initiative do
       end
     end
 
-    context "initiative doesn't have member_votes" do
+    context "initiative doesn't have deputy_votes" do
       it "returns false" do
         initiative.has_been_voted?.should be_false
       end
@@ -132,12 +132,12 @@ describe Initiative do
       end
     end
 
-    context "member voted" do
-      let(:member) { FactoryGirl.create(:member) }
+    context "deputy voted" do
+      let(:deputy) { FactoryGirl.create(:deputy) }
 
-      it "returns the vote for the member" do
-        vote = initiative.votes.create(voter: member, value: :for, session_id: 1)
-        initiative.vote_for(member).should eq vote
+      it "returns the vote for the deputy" do
+        vote = initiative.votes.create(voter: deputy, value: :for, session_id: 1)
+        initiative.vote_for(deputy).should eq vote
       end
 
     end

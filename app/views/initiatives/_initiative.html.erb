@@ -13,9 +13,9 @@
           <div><%= l(initiative.presented_at, format: :date) %></div>
         </div>
         <div class="seven columns">
-          <% if initiative.member %>
+          <% if initiative.deputy %>
             <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
-            <div class="proposer-small <%= party_abbr(initiative.member) %>-small">
+            <div class="proposer-small <%= party_abbr(initiative.deputy) %>-small">
               <%= link_to_sponsors initiative %>
             </div>
           <% elsif initiative.other_sponsor %>

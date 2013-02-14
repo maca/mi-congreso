@@ -1,0 +1,27 @@
+<% title t('deputies.deputies') %>
+
+<h3 class="section-header"><%= t('deputies.deputies') %></h3>
+
+<%= render "search_form" %>
+
+<table border="0" width="100%">
+  <thead>
+    <tr>
+      <th><%= t('deputies.name') %></th>
+      <th><%= t('deputies.party') %></th>
+      <th><%= t('deputies.state') %></th>
+    </th>
+  </thead>
+
+  <tbody>
+    <% @deputies.each do |deputy| %>
+    <tr>
+      <td><%= link_to deputy.name, deputy %></td>
+      <td><%= deputy.party_name %></td>
+      <td><%= deputy.state_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @deputies %>

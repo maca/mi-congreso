@@ -1,0 +1,24 @@
+<div class="sidebar">
+  <div class="panel avatar">
+    <%= image_tag @deputy.photo.url %>
+  </div>
+
+  <span class="label radius"><%= t('deputies.email') %></span>
+  <p><%= link_to truncate(@deputy.email, length: 27), "mailto:#{@deputy.email}" %></p>
+
+  <% if @deputy.twitter.present? %>
+  <span class="label radius"><%= t('deputies.twitter') %></span>
+  <p><%= link_to_twitter_username @deputy.twitter %></p>
+  <% end %>
+
+  <span class="label radius"><%= t('deputies.election_type') %></span>
+  <p><%= t("election_type.#{@deputy.election_type}") %></p>
+
+  <span class="label radius"><%= t('deputies.substitute') %></span>
+  <p><%= @deputy.substitute %></p>
+
+  <% if @deputy.birthdate.present? %>
+  <span class="label radius"><%= t('deputies.age') %></span>
+  <p><%= @deputy.age %></p>
+  <% end %>
+</div>

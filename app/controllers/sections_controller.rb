@@ -1,10 +1,10 @@
 class SectionsController < ApplicationController
 
   def index
-    @member = Member.find_by_section(params[:section_number], params[:state_id])
+    @deputy = Deputy.find_by_section(params[:section_number], params[:state_id])
 
-    if @member
-      redirect_to @member
+    if @deputy
+      redirect_to @deputy
     else
       redirect_to root_path
     end

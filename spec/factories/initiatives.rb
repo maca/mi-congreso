@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :initiative do
     title "MyString"
-    member_id 1
+    deputy_id 1
     description "MyText"
     original_document_url "MyString"
     presented_at "2012-10-04 20:36:16"

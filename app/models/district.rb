@@ -3,7 +3,7 @@ class District < ActiveRecord::Base
 
   belongs_to  :state
   has_many    :sections
-  has_one     :member
+  has_one     :deputy
 
   def name
     "#{number} - #{state.name}"

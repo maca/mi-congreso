@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   delegate :district, :to => :section, :allow_nil => true
-  delegate :member, :to => :district, :allow_nil => true
+  delegate :deputy, :to => :district, :allow_nil => true
 end

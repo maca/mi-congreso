@@ -1,0 +1,54 @@
+<% title @deputy.name %>
+
+<div class="row">
+  <div class="nine columns">
+    <h2 class="deputy-name <%= party_abbr(@deputy) %>"><%= @deputy.name %></h2>
+
+    <h4 class="subtitle"><%= @deputy.state_name %></h4>
+
+    <hr/>
+
+    <div class="initiatives">
+      <h4><%= t('deputies.sponsored_initiatives') %></h4>
+      <% if @sponsored_initiatives.present? %>
+        <%= render partial: "initiative", collection: @sponsored_initiatives %>
+      <% else %>
+        <h6><%= t('deputies.no_initiatives_sponsored', name: @deputy.name) %></h6>
+      <% end %>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="twelve columns voted-initiatives">
+        <h4><%= t('deputies.voted_initiatives') %></h4>
+
+        <%= render partial: "voted_initiative", collection: @voted_initiatives %>
+
+        <%= link_to t("deputies.see_all_votes"), votes_deputy_path(@deputy), class: "button small all-votes" %>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="six columns">
+        <div class="label secondary radius"><%= t("deputies.assistances") %></div>
+        <h4>
+          <%= number_to_percentage(@deputy.assistance_stats.assisted_percentage * 100) %>
+          <%= t("deputies.assistances_counts", assisted: @deputy.assistance_stats.assisted_count, total: @deputy.assistance_stats.total_count) %>
+        </h4>
+      </div>
+
+      <div class="six columns">
+        <% if @deputy.twitter.present? && @deputy.twitter_widget_id.present? %>
+          <%= twitter_timeline(@deputy.twitter, @deputy.twitter_widget_id) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="three columns">
+    <%= render "sidebar" %>
+  </div>
+</div>

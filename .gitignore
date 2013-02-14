@@ -74,3 +74,5 @@ pickle-email-*.html
 .env
 /zeus.json
 /config/heroku_env.rb
+/mi_congreso.sublime-project
+/mi_congreso.sublime-workspace

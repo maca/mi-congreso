@@ -1,13 +1,13 @@
-class MemberAssistanceStats
+class DeputyAssistanceStats
 
-  attr_reader :member
+  attr_reader :deputy
 
-  def initialize(member)
-    @member = member
+  def initialize(deputy)
+    @deputy = deputy
   end
 
   def assistances
-    @assistances ||= member.assistances
+    @assistances ||= deputy.assistances
   end
 
   def assisted_count

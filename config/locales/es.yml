@@ -15,7 +15,7 @@ es:
     mexicanos: "Porque el Congreso es de todos los mexicanos"
     about_us: "Acerca de Mi Congreso"
     register_and_participate: "Regístrate y participa!"
-    find_my_member: "Encuentra a tu diputado"
+    find_my_deputy: "Encuentra a tu diputado"
     section_number: "Sección"
     search: "Buscar"
 
@@ -28,7 +28,12 @@ es:
     senate_chamber: "Cámara de Senadores"
     sil: "Sistema de información legislativa"
 
-  members:
+  commissions:
+    chambers:
+      deputies: "Cámara de Diputados"
+      senators: "Cámara de Senadores"
+
+  deputies:
     name: "Nombre"
     party: "Partido"
     state: "Estado"
@@ -38,7 +43,7 @@ es:
     election_type: "Tipo de elección"
     substitute: "Suplente"
     age: "Edad"
-    members: "Diputados"
+    deputies: "Diputados"
     no_initiatives_sponsored: "%{name} aún no ha presentado ninguna iniciativa."
     sponsored_initiatives: "Inciativas presentadas"
     voted_initiatives: "Voto en iniciativas anteriores"
@@ -61,7 +66,7 @@ es:
     and_co_sponsors: " y %{count} más"
     votes_generated: "Se generaron %{votes_created} votos y no hubo errores!"
     initiative_or_session_not_found: "No encontré la iniciativa o la session"
-    members_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
+    deputies_not_found: "Se generaron %{votes_created} votos, pero los siguientes diputados no coincidieron con nuestros registros: %{not_found}. Corrige los nombres de los diputados antes de volver a intentar."
     oficial_votes: "Votación oficial"
     has_not_been_voted: "Aún no se ha votado"
     vote_on_this_initiative: "Vota por esta iniciativa"
@@ -105,8 +110,9 @@ es:
     models:
       admin_user: "Administrador"
       assistance: "Asistencia"
+      commission: "Comisión"
       initiative: "Iniciativa"
-      member: "Diputado"
+      deputy: "Diputado"
       party: "Partido"
       state: "Estado"
       session: "Sessión"
@@ -116,15 +122,26 @@ es:
 
     attributes:
       assistance:
-        member: "Diputado"
+        deputy: "Diputado"
         session: "Sesión"
         value: "Valor"
+
+      commission:
+        name: "Nombre"
+        chamber: "Cámara"
+        deputies: "Integrantes"
+        president: "Presidente"
+        president_id: "Presidente"
+        secretaries: "Secretarios"
+        secretary_ids: "Secretarios"
+        members: "Integrantes"
+        member_ids: "Integrantes"
 
       initiative:
         gazette_id: "ID Gaceta"
         title: "Título"
-        member: "Diputado"
-        member_id: "Presentada por"
+        deputy: "Diputado"
+        deputy_id: "Presentada por"
         sponsors: "Co-presentada por"
         other_sponsor: "Otros presentadores"
         description: "Descripción"
@@ -135,7 +152,7 @@ es:
         summary_by: "Resumida por"
         votes_url: "URL para extraer votos"
 
-      member:
+      deputy:
         name: "Nombre"
         email: "Correo"
         comission: "Comisión"

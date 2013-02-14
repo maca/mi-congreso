@@ -10,8 +10,8 @@
       <div class="six columns">
         <div class="label secondary radius"><%= t("initiatives.proposed_by") %></div>
 
-        <% if @initiative.member %>
-          <div class="proposer <%= party_abbr(@initiative.member) %>"><%= link_to @initiative.member.try(:name), @initiative.member %></div>
+        <% if @initiative.deputy %>
+          <div class="proposer <%= party_abbr(@initiative.deputy) %>"><%= link_to @initiative.deputy.try(:name), @initiative.deputy %></div>
 
           <% if @initiative.sponsors.present? %>
             <% @initiative.sponsors.each do |sponsor| %>

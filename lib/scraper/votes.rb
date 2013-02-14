@@ -12,7 +12,7 @@ module Scraper
     #   2. lola[12] are the votes Against
     #   3. lola[13] are the Neutral votes
     #   4. lola[14] are the Quorum votes
-    #   5. lola[15] are the members that were absent in the session
+    #   5. lola[15] are the deputies that were absent in the session
     #
     def initialize(base_url, vote_type)
       @base_url = base_url
@@ -45,7 +45,7 @@ module Scraper
       @party_nodes ||= document.css("td[width='86%'] table")
     end
 
-    def member_nodes
+    def deputy_nodes
       nodes = []
       party_nodes.each do |node|
         node.css("td").each do |sub_node|
@@ -55,8 +55,8 @@ module Scraper
       nodes = nodes.delete_if {|n| n.text.blank? }
     end
 
-    def member_names
-      nodes = member_nodes.map(&:text)
+    def deputy_names
+      nodes = deputy_nodes.map(&:text)
       nodes = nodes.map {|n| n.gsub(/\d{1,4}:/, "") }
     end
   end

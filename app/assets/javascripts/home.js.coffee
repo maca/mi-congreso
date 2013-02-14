@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $("#find-member-button").click ->
-    $("#find-member").reveal();
+  $("#find-deputy-button").click ->
+    $("#find-deputy").reveal();
     return false;

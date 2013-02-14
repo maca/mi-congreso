@@ -11,8 +11,8 @@
 
     <div class="six columns left">
       <span class="label secondary radius"><%= t("initiatives.proposed_by") %></span>
-      <% if initiative.member %>
-        <span class="proposer-small <%= party_abbr(initiative.member) %>-small">
+      <% if initiative.deputy %>
+        <span class="proposer-small <%= party_abbr(initiative.deputy) %>-small">
           <%= link_to_sponsors initiative %>
         </span>
       <% elsif initiative.other_sponsor %>

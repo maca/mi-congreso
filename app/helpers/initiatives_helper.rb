@@ -25,9 +25,9 @@ module InitiativesHelper
 
   def link_to_sponsors(initiative)
     text = ""
-    text << initiative.member.name
+    text << initiative.deputy.name
     text << t('initiatives.and_co_sponsors', count: initiative.sponsors_count.to_i) if initiative.sponsors_count.to_i > 0
-    link_to text, initiative.member
+    link_to text, initiative.deputy
   end
 
   def votes_width(initiative, vote_type)

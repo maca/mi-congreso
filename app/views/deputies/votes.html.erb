@@ -1,20 +1,20 @@
-<% title @member.name %>
+<% title @deputy.name %>
 
 <div class="row">
   <div class="nine columns">
-    <h2 class="member-name <%= party_abbr(@member) %>"><%= link_to @member.name, @member %></h2>
+    <h2 class="deputy-name <%= party_abbr(@deputy) %>"><%= link_to @deputy.name, @deputy %></h2>
 
-    <h4 class="subtitle"><%= @member.state_name %></h4>
+    <h4 class="subtitle"><%= @deputy.state_name %></h4>
 
     <hr/>
 
     <div class="row">
       <div class="twelve columns voted-initiatives">
-        <%= link_to t("members.back_to_profile"), @member, class: "button small" %>
+        <%= link_to t("deputies.back_to_profile"), @deputy, class: "button small" %>
 
         <hr/>
 
-        <h4><%= t('members.voted_initiatives') %></h4>
+        <h4><%= t('deputies.voted_initiatives') %></h4>
 
         <%= render partial: "voted_initiative", collection: @voted_initiatives %>
       </div>

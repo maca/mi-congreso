@@ -9,7 +9,7 @@ MiCongreso::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root to: "home#index"
-  resources :members, only: [:index, :show], path: "diputados" do
+  resources :deputies, only: [:index, :show], path: "diputados" do
     member { get :votes }
   end
 

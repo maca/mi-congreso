@@ -5,6 +5,6 @@ FactoryGirl.define do
     value         1
     initiative_id 1
     voter_id      1
-    voter_type    "Member"
+    voter_type    "Deputy"
   end
 end
