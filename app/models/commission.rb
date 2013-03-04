@@ -4,6 +4,8 @@ class Commission < ActiveRecord::Base
   has_many :commission_memberships
   has_many :deputies, through: :commission_memberships
 
+  has_and_belongs_to_many :initiative_steps
+
   VALID_CHAMBERS = ["deputies", "senators"]
 
   validates_inclusion_of :chamber, in: VALID_CHAMBERS

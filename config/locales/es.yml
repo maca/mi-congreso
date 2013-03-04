@@ -76,6 +76,8 @@ es:
     in_favor: "%{count} a favor"
     opposed: "%{count} en contra"
 
+  initiative_steps:
+
   sessions:
     name: "No. %{number}"
     generate_assistances: "Generar asistencias"
@@ -112,6 +114,7 @@ es:
       assistance: "Asistencia"
       commission: "Comisión"
       initiative: "Iniciativa"
+      initiative_step: "Paso"
       deputy: "Diputado"
       party: "Partido"
       state: "Estado"
@@ -151,6 +154,12 @@ es:
         views_count: "Número de visitas"
         summary_by: "Resumida por"
         votes_url: "URL para extraer votos"
+
+      initiative_step:
+        step: "Paso No."
+        start: "Inicio"
+        chamber: "Cámara"
+        commission_ids: "Comisiones"
 
       deputy:
         name: "Nombre"

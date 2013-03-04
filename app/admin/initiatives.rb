@@ -16,21 +16,20 @@ ActiveAdmin.register Initiative do
   filter :title
   filter :presented_at
 
-  form do |f|
-    f.inputs "Iniciativa" do
-      f.input :gazette_id
-      f.input :title
-      f.input :description
-      f.input :subjects
-      f.input :original_document_url
-      f.input :presented_at, as: :date_select
-      f.input :deputy_id, as: :select, collection: Deputy.order(:name)
-      f.input :sponsors
-      f.input :other_sponsor
-      f.input :summary_by
-      f.input :votes_url
+  form :partial => "form"
+
+  controller do
+    def new
+      @initiative = Initiative.new
+      (1..4).each {|step| @initiative.steps.build(step: step) }
+      new!
     end
-    f.actions
+
+    def edit
+      @initiative = Initiative.find(params[:id])
+      (1..4).each {|step| @initiative.steps.build(step: step) } if @initiative.steps.empty?
+      edit!
+    end
   end
 
   show do |initiative|
@@ -45,6 +44,26 @@ ActiveAdmin.register Initiative do
       row :views_count
       row :original_document_url
       row :votes_url
+    end
+
+    panel "Pasos" do
+      table do
+        tr do
+          th "Paso"
+          th "Inicio"
+          th "Camara"
+          th "Comisiones"
+        end
+
+        initiative.steps.each do |step|
+          tr do
+            td step.step
+            td I18n.l step.start
+            td I18n.t("commissions.chambers.#{step.chamber}")
+            td step.commissions.map(&:name).join(", ")
+          end
+        end
+      end
     end
 
     render "generate_votes_form"

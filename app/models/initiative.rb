@@ -1,7 +1,7 @@
 class Initiative < ActiveRecord::Base
   attr_accessible :title, :description, :original_document_url, :presented_at
   attr_accessible :deputy_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor
-  attr_accessible :votes_url, :gazette_id
+  attr_accessible :votes_url, :gazette_id, :steps_attributes
 
   paginates_per 10
 
@@ -11,6 +11,7 @@ class Initiative < ActiveRecord::Base
   has_many :user_votes, class_name: "Vote", conditions: "voter_type = 'User'"
   has_and_belongs_to_many :sponsors, class_name: "Deputy"
   has_and_belongs_to_many :subjects
+  has_many :steps, class_name: "InitiativeStep", dependent: :destroy, order: "step"
 
   validates_presence_of :title, :description, :presented_at
 
@@ -21,6 +22,8 @@ class Initiative < ActiveRecord::Base
   scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
   scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
   scope :with_votes, -> { where(voted: true) }
+
+  accepts_nested_attributes_for :steps
 
   def self.search_with_options(query={}, options={})
     options[:order] ||= "created_at_desc"

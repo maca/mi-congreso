@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214080649) do
+ActiveRecord::Schema.define(:version => 20130221063602) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(:version => 20130214080649) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "commissions_initiative_steps", :id => false, :force => true do |t|
+    t.integer "commission_id"
+    t.integer "initiative_step_id"
+  end
+
+  add_index "commissions_initiative_steps", ["commission_id", "initiative_step_id"], :name => "by_commission_id_and_initiative_step_id"
+
   create_table "deputies", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -121,6 +128,17 @@ ActiveRecord::Schema.define(:version => 20130214080649) do
   end
 
   add_index "districts", ["state_id"], :name => "index_districts_on_state_id"
+
+  create_table "initiative_steps", :force => true do |t|
+    t.integer  "initiative_id"
+    t.integer  "step"
+    t.date     "start"
+    t.string   "chamber"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "initiative_steps", ["initiative_id"], :name => "index_initiative_steps_on_initiative_id"
 
   create_table "initiatives", :force => true do |t|
     t.string   "title"

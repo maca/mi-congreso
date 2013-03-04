@@ -19,7 +19,7 @@ group :assets do
 end
 
 gem "devise", ">= 2.1.2"
-gem 'activeadmin', ">= 0.5.0"
+gem 'activeadmin', ">= 0.5.1"
 gem "ransack", ">= 0.7.0"
 gem "kaminari"
 gem "nokogiri"

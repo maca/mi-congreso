@@ -1,0 +1,31 @@
+<%= semantic_form_for [:admin, @initiative] do |f| %>
+
+  <%= f.inputs "Iniciativa" do %>
+    <%= f.input :gazette_id %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :subjects %>
+    <%= f.input :original_document_url %>
+    <%= f.input :presented_at, as: :string, input_html: { class: "datepicker" } %>
+    <%= f.input :deputy_id, as: :select, collection: Deputy.order(:name) %>
+    <%= f.input :sponsors %>
+    <%= f.input :other_sponsor %>
+    <%= f.input :summary_by %>
+    <%= f.input :votes_url %>
+  <% end %>
+
+  <%= f.inputs "Pasos", class: "inputs initiative-steps" do %>
+    <%= f.fields_for :steps do |builder| %>
+      <h3><%= "Paso #{builder.object.step}" %></h3>
+      <%= builder.input :step, as: :hidden %>
+      <%= builder.input :start, as: :string, input_html: { class: "datepicker" } %>
+
+      <% if builder.object.step < 3 %>
+        <%= builder.input :chamber, collection: Hash[Commission::VALID_CHAMBERS.map {|c| [I18n.t("commissions.chambers.#{c}"), c]}] %>
+        <%= builder.input :commission_ids, as: :select, input_html: {multiple: "multiple"}, collection: Commission.order("name ASC") %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>
