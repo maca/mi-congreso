@@ -45,6 +45,11 @@ describe Initiative do
       relation.should_receive(:sort_order).with("initiatives.created_at_desc")
       Initiative.search_with_options({}, {order: nil})
     end
+
+    it "should only return published initiatives" do
+      relation.should_receive(:published) { relation }
+      Initiative.search_with_options
+    end
   end
 
   describe "#by_subject_id" do

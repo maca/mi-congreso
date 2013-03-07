@@ -1,7 +1,7 @@
 class Initiative < ActiveRecord::Base
   attr_accessible :title, :description, :original_document_url, :presented_at
   attr_accessible :deputy_id, :summary_by, :subject_ids, :sponsor_ids, :other_sponsor
-  attr_accessible :votes_url, :gazette_id, :steps_attributes
+  attr_accessible :votes_url, :gazette_id, :steps_attributes, :draft
 
   paginates_per 10
 
@@ -22,6 +22,7 @@ class Initiative < ActiveRecord::Base
   scope :by_subject_id, ->(id) { includes(:subjects).where("subjects.id" => id) }
   scope :latest, ->(int=5) { order("presented_at DESC").limit(int) }
   scope :with_votes, -> { where(voted: true) }
+  scope :published, -> { where(draft: false) }
 
   accepts_nested_attributes_for :steps
 
@@ -33,6 +34,7 @@ class Initiative < ActiveRecord::Base
     initiatives = initiatives.includes(:subjects, :deputy => :party)
     initiatives = initiatives.page(options[:page])
     initiatives = initiatives.sort_order("initiatives.#{options[:order]}")
+    initiatives = initiatives.published
     initiatives
   end
 

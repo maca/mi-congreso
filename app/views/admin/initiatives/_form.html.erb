@@ -12,6 +12,7 @@
     <%= f.input :other_sponsor %>
     <%= f.input :summary_by %>
     <%= f.input :votes_url %>
+    <%= f.input :draft, label: t("initiatives.is_a_draft") %>
   <% end %>
 
   <%= f.inputs "Pasos", class: "inputs initiative-steps" do %>

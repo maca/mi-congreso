@@ -15,6 +15,7 @@ ActiveAdmin.register Initiative do
   filter :gazette_id
   filter :title
   filter :presented_at
+  filter :draft
 
   form :partial => "form"
 

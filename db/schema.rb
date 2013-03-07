@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221063602) do
+ActiveRecord::Schema.define(:version => 20130307053914) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -155,9 +155,11 @@ ActiveRecord::Schema.define(:version => 20130221063602) do
     t.string   "votes_url"
     t.boolean  "voted",                 :default => false
     t.integer  "gazette_id"
+    t.boolean  "draft",                 :default => false
   end
 
   add_index "initiatives", ["deputy_id"], :name => "index_initiatives_on_deputy_id"
+  add_index "initiatives", ["draft"], :name => "index_initiatives_on_draft"
 
   create_table "initiatives_subjects", :id => false, :force => true do |t|
     t.integer "initiative_id"

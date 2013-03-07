@@ -75,6 +75,7 @@ es:
     users_support_percentage: "%{percentage} de apoyo ciudadano"
     in_favor: "%{count} a favor"
     opposed: "%{count} en contra"
+    is_a_draft: "Esta iniciativa es un borrador"
 
   initiative_steps:
 
@@ -154,6 +155,7 @@ es:
         views_count: "Número de visitas"
         summary_by: "Resumida por"
         votes_url: "URL para extraer votos"
+        draft: "Borrador"
 
       initiative_step:
         step: "Paso No."
