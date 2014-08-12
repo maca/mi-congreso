@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
-ruby '1.9.3'
 gem 'rails', '3.2.11'
 gem "thin", ">= 1.4.1"
 gem "pg"
@@ -9,10 +9,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'turbo-sprockets-rails3', "~> 0.3.6"
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails', '~> 1.0.3'
   gem 'zurb-foundation', "~> 3.1.1"
@@ -37,7 +35,6 @@ group :development do
   gem 'guard-cucumber'
   gem 'rb-fsevent', '~> 0.9.1', require: false
   gem "letter_opener"
-  gem 'heroku'
 end
 
 group :development, :test do
